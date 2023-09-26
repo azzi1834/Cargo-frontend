@@ -1,0 +1,175 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header container styles */
+.header {
+  background-image: url("https://www.maersk.com/~/media_sc9/maersk/homepage/images/atwtz_1300x840_1.jpg?h=840&w=1300&hash=E697A3F52A48EF199684BDD4DE3435F5");
+  /* Replace with your image URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  padding: 15px;
+}
+
+.header-details {
+  height: 600px;
+  padding-top: 180px;
+}
+
+/* Title styles */
+.header-title {
+  font-size: 45px;
+}
+
+/* Description styles */
+.header-description {
+  font-size: 20px;
+}
+
+/* Card styles */
+.card {
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border: none;
+}
+
+.card-header {
+  background-color: transparent;
+  border: none;
+  justify-content: space-between;
+}
+
+/* Tracking form styles */
+.tracking-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-location {
+  font-size: 24px;
+}
+
+.divider {
+  background-color: white;
+  margin: 10px 0;
+}
+
+/* Track button styles */
+.track-button{
+  background-color: #043358;
+  color: white;
+  border: 1px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.registerUser-button {
+  background-color: #043358;
+  color: white;
+  border: 1px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.track-button:hover {
+  background-color: #043358;
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+}
+.track-button:hover::after{
+  background-color: #043358;
+  opacity: 0.9;
+  transition: 0.2s ease-in;
+}
+
+/*For tracking modules in Tracking form*/
+.methods {
+  cursor: pointer;
+  padding-top: 13px;
+}
+
+.methods:hover {
+  border-bottom: 2px solid rgb(10, 107, 172);
+  margin-bottom: 12px;
+  box-shadow: 3px;
+}
+
+/* style list in footer */
+li {
+  padding: 5px;
+}
+
+/* social links in footer */
+.socialLinks {
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.socialLinks>a {
+  text-decoration: none;
+  color: black;
+}
+
+/*  Input field of signup page*/
+.inputDiv>i {
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+/* manage logistics solutions cards on homepage */
+.logistic-card {
+  border: 1px solid rgb(126, 121, 121, 0.3);
+  height: 400px;
+}
+
+.logistic-card:hover {
+  box-shadow: 0 0 30px rgba(126, 121, 121, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+/* footer links  */
+.footer-Links>a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  padding: 8px 0px;
+  
+}
+.footer-Links>a:hover{
+  text-decoration: underline;
+}
+
+/* slider images in IndustrySectorCorousel */
+.slider-images{
+  width: 250px;
+  height: 250px;
+}
+.image-div{
+  margin-top: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+  /* transition: 1s linear; */
+}
+.image-div:hover{
+  border: 1px solid rgb(126, 121, 121, 0.3);
+  border-radius: 7px;
+}
+
+/* navbar items */
+.nav-items{
+  padding-right: 40px;
+}
+.nav-items>a:hover{
+  text-decoration:underline ;
+}
+.nav-items2{
+  padding-right: 40px;
+  justify-content: center;
+  align-items: center;
+}

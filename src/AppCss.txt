@@ -1,0 +1,151 @@
+.registerForm {
+  border: 0px;
+}
+
+.forgotPassword {
+  text-decoration: none;
+}
+
+.forgotPasswordDiv {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.registerFormDiv {
+  width: max-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.loginFormDiv {
+  width: max-content;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.forgotFormDiv {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.registerButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+body {
+  /* background-color: rgb(127, 135, 148); */
+}
+
+.inputDiv {
+  display: flex;
+}
+
+.icon {
+  font-size: 23px;
+  padding-top: 14px;
+}
+
+.icon2 {
+  font-size: 16px;
+  padding-top: 14px;
+}
+
+.alreadyAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.paraForgotPassword {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto;
+  width: 335px;
+  margin-right: auto;
+}
+
+.navbar-custom{
+  color: white;  
+} 
+.header {
+  background-image: url("https://www.maersk.com/~/media_sc9/maersk/homepage/images/atwtz_1300x840_1.jpg?h=840&w=1300&hash=E697A3F52A48EF199684BDD4DE3435F5");
+  min-height: 600px;
+  opacity: 0.9;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header-details{
+  padding-left: 2%;
+  padding-top: 20%;
+  display: flex;
+}
+@media screen and (max-width:1020px) {
+  .header-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+@media screen and (max-width:400px) {
+  .header-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .header-details{
+    /* padding-left: 2%; */
+    padding-top: 20%;
+    display: flex;
+  }
+}
+.methods{
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-top: 13px;
+  cursor: pointer;
+}
+.methods:hover{
+  font-weight: bold;
+  text-decoration: underline;
+  height: 2px;
+  padding-bottom: 5px;
+  transition: all .4s ease-in-out;
+}
+.tracking-form{
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+.icon-location{
+  font-size: 20px;
+  padding-top: 3px;
+}
+.track-button{
+  background-color: rgb(6, 66, 122);
+  color: white;
+  font-size: 20px;
+  border: 1px;
+  border-radius: 4px;
+  padding: 6px 16px;
+}
