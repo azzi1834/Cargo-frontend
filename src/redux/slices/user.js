@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const verifyToken = createAsyncThunk("verifyToken", async (body) => {
   const token = localStorage.getItem("jwtToken");
+  console.log(token);
   try {
     if (token) {
       const user = await axios.post(
@@ -29,7 +30,7 @@ export const generateOTP = createAsyncThunk("generateOTP", async (body) => {
   const token = localStorage.getItem("jwtToken");
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/user/generate-OTP`,
+      `${process.env.REACT_APP_BASE_URL}/auth/generate-OTP`,
       body,
       {
         headers: {
@@ -53,7 +54,7 @@ export const verifyOTP = createAsyncThunk("verifyOTP", async (body) => {
   const token = localStorage.getItem("jwtToken");
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/user/verify-OTP`,
+      `${process.env.REACT_APP_BASE_URL}/auth/verify-OTP`,
       { email, otp },
       {
         headers: {
@@ -62,10 +63,8 @@ export const verifyOTP = createAsyncThunk("verifyOTP", async (body) => {
         },
       }
     );
-    if (response.status === 200) {
-      localStorage.removeItem("email");
-    }
-    return response.data;
+
+    return response;
   } catch (error) {
     throw error;
   }
@@ -79,7 +78,7 @@ export const updatePassword = createAsyncThunk(
     const token = localStorage.getItem("jwtToken");
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_BASE_URL}/user/update-password`,
+        `${process.env.REACT_APP_BASE_URL}/auth/update-password`,
         { email, newpass },
         {
           headers: {
@@ -88,10 +87,10 @@ export const updatePassword = createAsyncThunk(
           },
         }
       );
-      if(response.status===200){
+      if (response?.data?.status === 200) {
         localStorage.removeItem("email");
       }
-      return response.data;
+      return response;
     } catch (error) {
       throw error;
     }
@@ -111,7 +110,7 @@ export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
         },
       }
     );
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }
@@ -121,10 +120,9 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     isLoading: false,
-    msg: "",
+    user: "",
     data: "",
     isError: false,
-    token: "",
   },
   extraReducers: (builder) => {
     //----------For User verify token-----------
@@ -202,11 +200,8 @@ const userSlice = createSlice({
       state.isLoading = false;
       if (action.payload.error) {
         state.isError = true;
-        state.msg = action.payload.message;
       } else {
         state.data = action.payload;
-        state.msg = action.payload.data.message;
-        state.token = action.payload.data.token;
       }
     });
     builder.addCase(updateProfile.rejected, (state, action) => {

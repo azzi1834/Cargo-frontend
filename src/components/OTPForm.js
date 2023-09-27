@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styling/App.css";
 import "../styling/ForgotPassword.css";
 import { Link } from "react-router-dom";
@@ -7,28 +7,39 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { toast ,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SignupSchema = Yup.object().shape({
   otp: Yup.string().max(4, "OTP must be 4 digit").required("OTP is required"),
 });
 export default function OTPForm() {
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const handleVerifyOTP = (values) => {
     dispatch(verifyToken());
     dispatch(verifyOTP(values));
     console.log(values);
   };
-  const state = useSelector((state) => state);
-  console.log(state);
-  if(state.user.data.status===200){
-    navigate("/user/update-profile");
-  }
+  const { data } = useSelector((state) => state?.user);
+  useEffect(() => {
+    console.log("data",data);
+    if (data?.data?.status === 200) {
+      toast.success("OTP verified successfully")
+      setTimeout(() => {
+        navigate("/auth/update-password");
+      }, 2000);
+    }
+    if(data?.data?.status===0){
+      toast.error("Invalid OTP")
+    }
+  }, [data]);
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
-      >
+      ><ToastContainer/>
         <Link to={"/"}>
           <img
             className="p-3"

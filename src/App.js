@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ForgotPassword from "./components/ForgotPassword";
 import OTPForm from "./components/OTPForm";
 import UpdatePassword from "./components/UpdatePassword";
-import Navbar from "./components/Navbar";
+import UpdateProfile from "./components/UpdateProfile";
 function App() {
   return (
     <>
@@ -22,12 +22,12 @@ function App() {
         <Route path="/Feedback" element={<Feedback />}></Route>
         <Route path="/insights" element={<DiscoverMore />}></Route>
         <Route
-          path="/user/forgot-password"
+          path="/auth/forgot-password"
           element={<ForgotPassword />}
         ></Route>
-        <Route path="/user/verify-otp" element={<OTPForm />}></Route>
-        <Route path="/user/update-profile" element={<UpdatePassword />}></Route>
-        <Route path="/navbar" element={<Navbar />}></Route>
+        <Route path="/auth/verify-otp" element={<OTPForm />}></Route>
+        <Route path="/user/update-profile" element={<UpdateProfile/>}></Route>
+        <Route path="/auth/update-password" element={<UpdatePassword/>}></Route>
       </Routes>
     </>
   );

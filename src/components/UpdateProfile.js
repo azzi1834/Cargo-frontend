@@ -4,49 +4,36 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePassword, verifyToken } from "../redux/slices/user";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import toast from "react-hot-toast";
 
-const SignupSchema = Yup.object().shape({
+const passwordSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-    )
     .required("Password is required"),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
 });
 
-export default function UpdatePassword() {
+export default function UpdateProfile() {
+  const handleLogout = () => {
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("email");
+    console.log("logout");
+    toast("Logout");
+  };
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.user);
-  const navigate = useNavigate();
+
   const handleUpdatePassword = (value) => {
+    dispatch(verifyToken());
     dispatch(updatePassword(value.password));
   };
-  useEffect(() => {
-    if (data && data?.data?.status === 200) {
-      toast.success("Password Updated Successful");
-      setTimeout(() => {
-        navigate("/auth/login");
-      }, 2000);
-    }
-    if (data && data?.data?.status === 0) {
-      toast.error("Something went wrong");
-    }
-  }, [data]);
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
       >
-        <ToastContainer />
         <Link to={"/"}>
           <img
             className="p-3"
@@ -56,20 +43,38 @@ export default function UpdatePassword() {
         </Link>
       </nav>
       <div>
-        <h1 className="my-3 mx-3 d-flex justify-content-center">
-          User Settings
-        </h1>
-
+        <h1 className="my-3 mx-3 d-flex justify-content-center">User Settings</h1>
+        <p className="m-3">
+          <span className="m-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+          </span>
+          Your Profile
+        </p>
         <h3 className="mx-5">Update Password</h3>
       </div>
       <div className="row">
         <div className="col-md-7 mx-5">
           <Formik
             initialValues={{
+              
               password: "",
               confirmPassword: "",
+              
             }}
-            validationSchema={SignupSchema}
+            validationSchema={passwordSchema}
             onSubmit={(values) => {
               handleUpdatePassword(values);
             }}
@@ -112,6 +117,16 @@ export default function UpdatePassword() {
               </button>
             </Form>
           </Formik>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-8">
+          <h3 className="mx-3 justify-content-center">Exit from account</h3>
+          <Link to={"/"}>
+            <button className="btn btn-danger bg-light border-1 text-danger w-50 mx-5 my-3" onClick={handleLogout}>
+              Logout
+            </button>
+          </Link>
         </div>
       </div>
     </>

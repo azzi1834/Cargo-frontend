@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { generateOTP, verifyOTP, verifyToken } from "../redux/slices/user";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,31 +6,38 @@ import "../styling/App.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { toast ,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
 });
 
 export default function ForgotPassword() {
-  const [redirect, setRedirect] = useState(false);
+  const { data } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const handleForgotPassword = (values) => {
-    dispatch(verifyToken());
     dispatch(generateOTP(values));
     console.log(values);
   };
-  const state = useSelector((state) => state);
-  console.log(state.user.data);
-  if(state.user.data.status===200){
-    navigate("/user/verify-otp")
-  }
+  useEffect(()=> {
+    if(data && data?.status===200){
+      toast.success("OTP generated Successful");
+      setTimeout(() => {
+        navigate("/auth/verify-otp");
+      }, 2000);
+    }
+    if(data && data?.status===0){
+      toast.error("Invalid Email")
+    }
+  }, [data])
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
-      >
+      ><ToastContainer/>
         <Link to={"/"}>
           <img
             className="p-3"

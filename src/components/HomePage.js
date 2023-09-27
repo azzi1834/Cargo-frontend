@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import IndustrySectorsCorousel from "./IndustrySectorsCorousel";
+import CompaniesCorousel from "./CompaniesCorousel";
 
 export default function HomePage() {
   return (
@@ -167,7 +168,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="row p-5">
+        <div className="row p-5 pe-0">
           <div>
             <h3>Industry Sectors</h3>
           </div>
@@ -176,12 +177,17 @@ export default function HomePage() {
             Maersk offers global and local logistics solutions that enable small
             and large businesses to grow. Next
           </div>
-          <div className="container">
+          <div>
             <IndustrySectorsCorousel />
           </div>
         </div>
       </div>
-      <Footer />
+      <div>
+        <CompaniesCorousel />
+      </div>
+      <div className="mt-3">
+        <Footer />
+      </div>
     </>
   );
 }

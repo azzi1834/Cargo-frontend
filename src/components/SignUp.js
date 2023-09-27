@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,9 @@ import { verifyToken } from "../redux/slices/user";
 import { Link } from "react-router-dom";
 import "../styling/App.css";
 import countries from "./CountriesList";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 const SignupSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
   firstName: Yup.string().required("First Name is required"),
@@ -18,10 +20,14 @@ const SignupSchema = Yup.object().shape({
     "Either landline number or mobile number is required"
   ),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+    .min(8, "Password must be at least 8 characters")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    )
+    .required("Password must be required"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .oneOf([Yup.ref("password"), null], "Passwords must be match")
     .required("Confirm Password is required"),
   country: Yup.string().required("Country/Region is required"),
   agreeToTerms: Yup.boolean()
@@ -30,58 +36,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function SignUp() {
-  const countryOptions = [
-    { value: "usa", label: "United States" },
-    { value: "canada", label: "Canada" },
-    { value: "usa", label: "United States" },
-    { value: "canada", label: "Canada" },
-    { value: "australia", label: "Australia" },
-    { value: "uk", label: "United Kingdom" },
-    { value: "germany", label: "Germany" },
-    { value: "france", label: "France" },
-    { value: "italy", label: "Italy" },
-    { value: "spain", label: "Spain" },
-    { value: "japan", label: "Japan" },
-    { value: "china", label: "China" },
-    { value: "india", label: "India" },
-    { value: "russia", label: "Russia" },
-    { value: "brazil", label: "Brazil" },
-    { value: "mexico", label: "Mexico" },
-    { value: "argentina", label: "Argentina" },
-    { value: "south-africa", label: "South Africa" },
-    { value: "egypt", label: "Egypt" },
-    { value: "kenya", label: "Kenya" },
-    { value: "nigeria", label: "Nigeria" },
-    { value: "saudi-arabia", label: "Saudi Arabia" },
-    { value: "uae", label: "United Arab Emirates" },
-    { value: "turkey", label: "Turkey" },
-    { value: "greece", label: "Greece" },
-    { value: "switzerland", label: "Switzerland" },
-    { value: "sweden", label: "Sweden" },
-    { value: "norway", label: "Norway" },
-    { value: "denmark", label: "Denmark" },
-    { value: "finland", label: "Finland" },
-    { value: "netherlands", label: "Netherlands" },
-    { value: "belgium", label: "Belgium" },
-    { value: "austria", label: "Austria" },
-    { value: "portugal", label: "Portugal" },
-    { value: "poland", label: "Poland" },
-    { value: "hungary", label: "Hungary" },
-    { value: "czech-republic", label: "Czech Republic" },
-    { value: "greece", label: "Greece" },
-    { value: "switzerland", label: "Switzerland" },
-    { value: "sweden", label: "Sweden" },
-    { value: "norway", label: "Norway" },
-    { value: "denmark", label: "Denmark" },
-    { value: "finland", label: "Finland" },
-    { value: "netherlands", label: "Netherlands" },
-    { value: "belgium", label: "Belgium" },
-    { value: "austria", label: "Austria" },
-    { value: "portugal", label: "Portugal" },
-    { value: "poland", label: "Poland" },
-    { value: "hungary", label: "Hungary" },
-    { value: "czech-republic", label: "Czech Republic" },
-  ];
+  const navigate = useNavigate();
+
   const initialValues = {
     username: "",
     firstName: "",
@@ -97,21 +53,29 @@ export default function SignUp() {
   };
 
   const dispatch = useDispatch();
-
+  const { data } = useSelector((state) => state.auth);
   const onSubmit = (values) => {
     dispatch(registerUser(values));
-    dispatch(verifyToken());
-    console.log(values);
   };
-
-  const state = useSelector((state) => state);
-
+  useEffect(() => {
+    console.log("state", data);
+    if (data?.status === 200) {
+      toast.success("User Registered Successfull");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+    if (data?.status === 0) {
+      toast.error("User already exists");
+    }
+  }, [data]);
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
       >
+        <ToastContainer />
         <Link to={"/"}>
           <img
             className="p-3"
@@ -343,6 +307,14 @@ export default function SignUp() {
           </div>
         </div>
         <div className=" col-md-3"></div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <p className="my-3 mx-3">Already have an Account?</p>
+        <Link to={"/auth/login"}>
+          <button className="btn btn-primary my-3 registerUser-button">
+            Login
+          </button>
+        </Link>
       </div>
     </>
   );

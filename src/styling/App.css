@@ -147,12 +147,16 @@ li {
 
 /* slider images in IndustrySectorCorousel */
 .slider-images{
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
+}
+.company-slider-images{
+  width: 150px;
+  height: 150px;
 }
 .image-div{
   margin-top: 30px;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   /* transition: 1s linear; */
 }
@@ -160,7 +164,12 @@ li {
   border: 1px solid rgb(126, 121, 121, 0.3);
   border-radius: 7px;
 }
-
+/* slider images in Company Corousel */
+.companySlider-div{
+  margin-top: 30px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
 /* navbar items */
 .nav-items{
   padding-right: 40px;

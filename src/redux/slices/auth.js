@@ -6,45 +6,26 @@ import "react-toastify/dist/ReactToastify.css";
 export const registerUser = createAsyncThunk("registerUser", async (body) => {
   const response = await axios.post(
     "http://localhost:4000/auth/signup",
-    {
-      body,
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
+
+    body
+    // {
+    // headers: {
+    // "Content-Type": "application/json",
+    // },
+    // }
   );
   localStorage.setItem("jwtToken", response.data.token);
-  console.log("respppppp", response.data.token);
-  if (response.status === 0) {
-    // toast("User already exists");
-  }
+  localStorage.setItem("email",response?.data?.dataValues?.email)
   return response.data;
 });
 export const loginUser = createAsyncThunk("loginUser", async (body) => {
-  const result=false;
   const response = await axios.post(
     "http://localhost:4000/auth/login",
-    {
-      body,
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
+
+    body
   );
   localStorage.setItem("jwtToken", response.data.token);
-  if (response.status === 0) {
-    return {
-      result
-    }
-  }
-  return {
-    status:response.data.status,
-    message:response.data.message
-  }
+  return response;
 });
 const authSlice = createSlice({
   name: "auth",
@@ -52,8 +33,8 @@ const authSlice = createSlice({
     isLoading: false,
     data: null,
     isError: false,
-    status: 0,
-    message: "",
+    userResponse: "",
+    isCompleted: false,
   },
   extraReducers: (builder) => {
     //------------state manage for user registration
@@ -63,8 +44,8 @@ const authSlice = createSlice({
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
-      state.status = action.payload.status;
-      state.message = action.payload.message;
+      state.isCompleted = true;
+      state.userResponse=action?.payload?.data?.dataValues;
     });
     builder.addCase(registerUser.rejected, (state, action) => {
       console.log("Error", action.payload);
@@ -77,12 +58,12 @@ const authSlice = createSlice({
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
-      state.status = action.payload.status;
-      state.message = action.payload.message;
+      state.isCompleted = true;
+      state.userResponse=action?.payload?.data?.dataValues;
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       console.log("Error", action.payload);
-      // state.isError = true;
+      state.isError = true;
     });
   },
 });
