@@ -116,6 +116,26 @@ export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
   }
 });
 
+export const sendFeedback = createAsyncThunk("sendFeedback", async (body) => {
+  const email=localStorage.getItem("email");
+  const token = localStorage.getItem("jwtToken");
+  try {
+    const response = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/user/feedback`,
+      {body,email},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -205,6 +225,23 @@ const userSlice = createSlice({
       }
     });
     builder.addCase(updateProfile.rejected, (state, action) => {
+      console.log("Error", action.payload);
+      state.isError = true;
+      state.isLoading = false;
+    });
+    //-----------------User send Feedback--------------
+    builder.addCase(sendFeedback.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(sendFeedback.fulfilled, (state, action) => {
+      state.isLoading = false;
+      if (action.payload.error) {
+        state.isError = true;
+      } else {
+        state.data = action.payload;
+      }
+    });
+    builder.addCase(sendFeedback.rejected, (state, action) => {
       console.log("Error", action.payload);
       state.isError = true;
       state.isLoading = false;

@@ -16,9 +16,7 @@ const SignupSchema = Yup.object().shape({
   surname: Yup.string().required("Surname is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   mobileNumber: Yup.number().required("Mobile Number is required"),
-  landline: Yup.number().required(
-    "Landline number  is required"
-  ),
+  landline: Yup.number().required("Landline number  is required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
     .matches(
@@ -54,19 +52,19 @@ export default function SignUp() {
 
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.auth);
-  const onSubmit = (values,{resetForm}) => {
+  const { isLogged } = useSelector((state) => state.auth);
+  const onSubmit = (values, { resetForm }) => {
     dispatch(registerUser(values));
-    resetForm({values:""});
+    resetForm({ values: "" });
   };
   useEffect(() => {
-    if (data?.status === 200) {
+    if (isLogged && data?.status===200) {
       toast.success("User Registered Successfull");
       setTimeout(() => {
         navigate("/");
       }, 2000);
-    }
-    if (data?.status === 0) {
-      toast.error("User already exists");
+    }else if(isLogged && data?.status===0){
+      toast.error("User Already Exists");
     }
   }, [data]);
   return (

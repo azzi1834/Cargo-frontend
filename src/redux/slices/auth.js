@@ -26,8 +26,15 @@ export const loginUser = createAsyncThunk("loginUser", async (body) => {
     body
   );
   localStorage.setItem("jwtToken", response.data.token);
+  localStorage.setItem("email",response?.data?.dataValues?.email);
   return response;
 });
+
+export const logout=createAsyncThunk("logout",async(body)=>{
+  sessionStorage.clear();
+  localStorage.clear();
+});
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -35,7 +42,7 @@ const authSlice = createSlice({
     data: null,
     isError: false,
     userResponse: "",
-    isCompleted: false,
+    isLogged: false,
   },
   extraReducers: (builder) => {
     //------------state manage for user registration
@@ -45,7 +52,7 @@ const authSlice = createSlice({
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
-      state.isCompleted = true;
+      state.isLogged = true;
       state.userResponse = action?.payload?.data?.dataValues;
     });
     builder.addCase(registerUser.rejected, (state, action) => {
@@ -59,12 +66,28 @@ const authSlice = createSlice({
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
-      state.isCompleted = true;
+      state.isLogged = true;
       state.userResponse = action?.payload?.data?.dataValues;
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       console.log("Error", action.payload);
       state.isError = true;
+      state.isLogged=false;
+    });
+    //-----------Logout---------------------
+    builder.addCase(logout.pending, (state, action) => {
+      state.isLoading = true;
+      state.isLogged=false;
+    });
+    builder.addCase(logout.fulfilled, (state, action) => {
+      state.isLogged = false;
+      state.data=null;
+      state.userResponse=null;
+    });
+    builder.addCase(logout.rejected, (state, action) => {
+      console.log("Error", action.payload);
+      state.isError = true;
+      state.isLogged=false;
     });
   },
 });

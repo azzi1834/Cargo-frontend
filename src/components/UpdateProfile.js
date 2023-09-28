@@ -4,8 +4,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePassword, verifyToken } from "../redux/slices/user";
-import toast from "react-hot-toast";
-
+import {toast,ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { logout } from "../redux/slices/auth";
 const passwordSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
@@ -16,14 +17,14 @@ const passwordSchema = Yup.object().shape({
 });
 
 export default function UpdateProfile() {
+  const dispatch = useDispatch();
   const handleLogout = () => {
-    localStorage.removeItem("jwtToken");
-    localStorage.removeItem("email");
     console.log("logout");
+    sessionStorage.clear();
+    localStorage.clear();
+    dispatch(logout());
     toast("Logout");
   };
-  const dispatch = useDispatch();
-
   const handleUpdatePassword = (value) => {
     dispatch(verifyToken());
     dispatch(updatePassword(value.password));
@@ -33,7 +34,7 @@ export default function UpdateProfile() {
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
-      >
+      ><ToastContainer/>
         <Link to={"/"}>
           <img
             className="p-3"

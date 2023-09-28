@@ -3,7 +3,6 @@ import { useState } from "react";
 import logo from "../images/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import {
   Navbar,
   Container,
@@ -16,6 +15,7 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { verifyToken } from "../redux/slices/user";
+import { logout } from "../redux/slices/auth";
 function MyNavbar() {
   const navigate = useNavigate();
   const [show1, setShow1] = useState(false);
@@ -40,15 +40,16 @@ function MyNavbar() {
   const hideDropdown3 = (e) => {
     setShow3(false);
   };
-  const { data } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.auth);
+  const {isLogged}=useSelector((state)=>state.auth);
   const handleProfile = () => {
-    dispatch(verifyToken());
-    if (data?.message === "Authorized Access") {
+    if (isLogged) {
       navigate("/user/update-profile");
     } else {
       navigate("/auth/register");
     }
+    console.log("data", data);
+    // navigate("/auth/register");
   };
   return (
     <>

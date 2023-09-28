@@ -24,25 +24,24 @@ export default function Login() {
     password: "",
     agreeToTerms: false,
   };
-  //use state for reset form after submit
-  const [formValues, setFormValues] = useState(initialValues);
-  const { data } = useSelector((state) => state?.auth);
+  const { data } = useSelector((state) => state.auth);
+  const { isLogged } = useSelector((state) => state.auth);
+  console.log("data",data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginUser = async (values) => {
     dispatch(loginUser(values));
-    // dispatch(verifyToken());
   };
   useEffect(() => {
     console.log("state", data);
-    if (data?.data?.status === 200) {
+    if (isLogged && data?.status === 200) {
       toast.success("User Login Successfull");
       setTimeout(() => {
         navigate("/");
       }, 1000);
     }
-    if (data?.data?.status === 0) {
-      toast.error("User Invalid");
+    if (data?.data?.status === 401) {
+      toast.error("Email and Password Invalid");
     }
   }, [data]);
   return (

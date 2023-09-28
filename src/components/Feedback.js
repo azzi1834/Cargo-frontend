@@ -8,8 +8,12 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { sendFeedback, verifyToken } from "../redux/slices/user";
 function Feedback() {
+  const [selectedRole, setSelectedRole] = useState("");
+  const [description, setDescription] = useState("");
+  const [descriptionRole, setDescriptionRole] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [showForm, setShowForm] = useState(true);
   const [count, setCount] = useState(0);
@@ -60,15 +64,45 @@ function Feedback() {
     },
     { value: "Other", label: "Other", className: "" },
   ];
-  const defaultOption = options[0];
   const handleSelectOption = (e) => {
     setSelectedOption(e.target.value);
     if (selectedOption === "yes") {
       setShowForm(true);
-    } else {
+    } else if (selectedOption === "no") {
       setShowForm(false);
     }
   };
+  const handleDescriptionRole = (e) => {
+    setCount(e.target.value.length);
+    setDescriptionRole(e.target.value);
+  };
+  const handleDropdown = (e) => {
+    setSelectedRole(e.value);
+  };
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.auth);
+  const handleSubmit = () => {
+    setShow(false);
+    console.log({
+      selectedOption,
+      userRating,
+      description,
+      descriptionRole,
+      selectedRole,
+    });
+    dispatch(verifyToken());
+    dispatch(
+      sendFeedback({
+        selectedOption,
+        userRating,
+        description,
+        descriptionRole,
+        selectedRole,
+      })
+    );
+    console.log("after sendfeedback", data);
+  };
+
   return (
     <>
       <Button variant="danger" onClick={handleShow}>
@@ -151,6 +185,8 @@ function Feedback() {
               id="textArea"
               rows="3"
               style={{ borderColor: "black" }}
+              onChange={(e) => setDescription(e.target.value)}
+              name="description"
             ></textarea>
           </div>
           <div>
@@ -160,8 +196,8 @@ function Feedback() {
             <Dropdown
               className="my-2"
               options={options}
-              // onChange={this._onSelect}
-              value={defaultOption}
+              onChange={(e) => handleDropdown(e)}
+              // value={defaultOption}
               style={{ borderColor: "black" }}
               placeholder="Select an option"
             />
@@ -177,7 +213,7 @@ function Feedback() {
               style={{ borderColor: "black" }}
               className="form-control my-2"
               maxLength={50}
-              onChange={(e) => setCount(e.target.value.length)}
+              onChange={(e) => handleDescriptionRole(e)}
             />
             <label htmlFor="charLimit" className="d-flex flex-row-reverse">
               {count}/50
@@ -288,7 +324,7 @@ function Feedback() {
                   paddingTop: "12px",
                   paddingBottom: "12px",
                 }}
-                onClick={handleClose}
+                onClick={handleSubmit}
                 type="submit"
               >
                 Submit

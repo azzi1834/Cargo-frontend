@@ -1,28 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/auth";
-import storageSession from "reduxjs-toolkit-persist/lib/storage/session";
+import storage from "redux-persist/lib/storage";
 import userReducer from "./slices/user";
 import thunk from "redux-thunk";
-import storage from "redux-persist/lib/storage";
+import storageSession from "redux-persist/lib/storage/session";
 import { persistReducer, persistStore } from "redux-persist";
 const persistConfig = {
   key: "root",
-  storageSession,
+  storage: storageSession,
 };
+const rootReducer = combineReducers({
+  auth:authReducer,
+  user:userReducer,
+});
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  userReducer,
-  authReducer
-);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const Store = configureStore({
-  reducer: {
-    // auth: authReducer,
-    auth: persistedReducer,
-    // user: userReducer,
-    user: persistedReducer,
-  },
+  // reducer: {
+  // auth: authReducer,
+  // auth: persistedReducer(userPersistConfig, userReducer),
+  // user: userReducer,
+  // user: persistedReducer(authPersistConfig, authReducer),
+  // },
+  reducer: persistedReducer,
   middleware: [thunk],
 });
 export const persistor = persistStore(Store);
