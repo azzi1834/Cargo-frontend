@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.svg";
 import "../styling/App.css";
+
 export default function () {
   return (
     <footer>
@@ -50,16 +52,14 @@ export default function () {
         <div className="col-md-4">
           <div className="d-flex p-3">
             <img
-              src="https://static.vecteezy.com/system/resources/previews/019/776/137/original/alphabet-letter-c-green-3d-render-free-png.png"
+              src={logo}
               alt="MyCargo"
               style={{
-                width: "40px",
+                width: "160px",
                 height: "40px",
-                marginRight: "10px",
-                paddingLeft: "10px",
               }}
             />
-            <h2 className="">MyCargo</h2>
+            
           </div>
           <div>
             <p className="mx-5">&copy;A.P.Moller - Maersk</p>

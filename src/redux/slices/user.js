@@ -74,12 +74,12 @@ export const updatePassword = createAsyncThunk(
   "updatePassword",
   async (body) => {
     const email = localStorage.getItem("email");
-    const newpass = body;
+    const newPassword = body;
     const token = localStorage.getItem("jwtToken");
     try {
       const response = await axios.put(
         `${process.env.REACT_APP_BASE_URL}/auth/update-password`,
-        { email, newpass },
+        { email, newPassword },
         {
           headers: {
             Authorization: `Bearer ${token}`,

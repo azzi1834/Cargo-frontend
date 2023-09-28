@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import logo from "../images/logo.png";
+import logo from "../images/logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -40,11 +40,11 @@ function MyNavbar() {
   const hideDropdown3 = (e) => {
     setShow3(false);
   };
-  const {data} = useSelector((state) => state.user);
+  const { data } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleProfile = () => {
-    dispatch(verifyToken())
-    if (data?.message==="Authorized Access") {
+    dispatch(verifyToken());
+    if (data?.message === "Authorized Access") {
       navigate("/user/update-profile");
     } else {
       navigate("/auth/register");
@@ -63,7 +63,7 @@ function MyNavbar() {
           </Navbar.Brand>
           <div className="d-flex flex-wrap" style={{ marginRight: "130px" }}>
             <div className="nav-items">
-              <Nav.Link href="/prices">Prices</Nav.Link>
+              <Nav.Link href="/prices-and-quotes">Prices</Nav.Link>
             </div>
             <div className="nav-items">
               <NavDropdown
@@ -161,7 +161,7 @@ function MyNavbar() {
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
             placement="end"
-            style={{ width: 900 }}
+            style={{ width: 400 }}
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id="offcanvasNavbarLabel"></Offcanvas.Title>
@@ -169,7 +169,7 @@ function MyNavbar() {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3 navabr">
                 <div className="row p-5">
-                  <div className="col-sm-6">
+                  <div className="col-sm-12">
                     <Nav.Link
                       href="/transportation-services"
                       style={{ fontSize: "20px", paddingTop: "10px" }}
@@ -225,8 +225,7 @@ function MyNavbar() {
                     <Nav.Link href="/supply-chain-logistics/international-development">
                       International Development
                     </Nav.Link>
-                  </div>
-                  <div className="col-sm-6">
+
                     <Nav.Link
                       href="/digital-solutions"
                       style={{ fontSize: "20px" }}
@@ -358,7 +357,7 @@ function MyNavbar() {
                   </div>
                 </div>
                 <div
-                  className="row mx-5 p-3"
+                  className="row mx-2 p-1"
                   style={{ backgroundColor: "rgb(180, 209, 206,0.2)" }}
                 >
                   <div className="d-flex flex-column col-md-6">
@@ -374,13 +373,13 @@ function MyNavbar() {
                     <div>
                       <Link to={"/insights"}>
                         <button
-                          className="btn btn-info my-2"
+                          className="btn btn-info my-2 w-100"
                           style={{
                             border: "0px",
                             borderRadius: "0px",
                             backgroundColor: "#043358",
                             color: "white",
-                            padding: "10px 20px",
+                            padding: "15px 10px",
                           }}
                         >
                           Discover more
@@ -391,7 +390,7 @@ function MyNavbar() {
                   <div className="col-md-6">
                     <img
                       className="img-fluid my-3"
-                      style={{ width: "250px", height: "200px" }}
+                      style={{ width: "350px", height: "200px" }}
                       src="https://www.maersk.com/~/media_sc9/Maersk/Insights/Images/insights_600x600"
                       alt="Logistics Insights"
                     />

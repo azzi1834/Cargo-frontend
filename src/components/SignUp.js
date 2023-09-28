@@ -15,9 +15,9 @@ const SignupSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
   surname: Yup.string().required("Surname is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  mobileNumber: Yup.string().required("Mobile Number is required"),
-  landline: Yup.string().required(
-    "Either landline number or mobile number is required"
+  mobileNumber: Yup.number().required("Mobile Number is required"),
+  landline: Yup.number().required(
+    "Landline number  is required"
   ),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
@@ -54,11 +54,11 @@ export default function SignUp() {
 
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.auth);
-  const onSubmit = (values) => {
+  const onSubmit = (values,{resetForm}) => {
     dispatch(registerUser(values));
+    resetForm({values:""});
   };
   useEffect(() => {
-    console.log("state", data);
     if (data?.status === 200) {
       toast.success("User Registered Successfull");
       setTimeout(() => {
@@ -195,6 +195,7 @@ export default function SignUp() {
                     name="mobileNumber"
                     placeholder="Enter mobile number"
                     className="form-control"
+                    maxLength={15}
                   />
                   <ErrorMessage
                     name="mobileNumber"
@@ -211,6 +212,7 @@ export default function SignUp() {
                         name="landline"
                         placeholder="Enter landline number"
                         className="form-control"
+                        maxLength={15}
                       />
                       <ErrorMessage
                         name="landline"

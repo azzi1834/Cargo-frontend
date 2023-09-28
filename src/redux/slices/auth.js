@@ -7,15 +7,16 @@ export const registerUser = createAsyncThunk("registerUser", async (body) => {
   const response = await axios.post(
     "http://localhost:4000/auth/signup",
 
-    body
-    // {
-    // headers: {
-    // "Content-Type": "application/json",
-    // },
-    // }
+    body,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
   );
+  console.log("response",response);
   localStorage.setItem("jwtToken", response.data.token);
-  localStorage.setItem("email",response?.data?.dataValues?.email)
+  localStorage.setItem("email", response?.data?.dataValues?.email);
   return response.data;
 });
 export const loginUser = createAsyncThunk("loginUser", async (body) => {
@@ -45,7 +46,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.data = action.payload;
       state.isCompleted = true;
-      state.userResponse=action?.payload?.data?.dataValues;
+      state.userResponse = action?.payload?.data?.dataValues;
     });
     builder.addCase(registerUser.rejected, (state, action) => {
       console.log("Error", action.payload);
@@ -59,7 +60,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.data = action.payload;
       state.isCompleted = true;
-      state.userResponse=action?.payload?.data?.dataValues;
+      state.userResponse = action?.payload?.data?.dataValues;
     });
     builder.addCase(loginUser.rejected, (state, action) => {
       console.log("Error", action.payload);

@@ -19,12 +19,19 @@ const SignupSchema = Yup.object().shape({
 });
 
 export default function Login() {
+  const initialValues = {
+    email: "",
+    password: "",
+    agreeToTerms: false,
+  };
+  //use state for reset form after submit
+  const [formValues, setFormValues] = useState(initialValues);
   const { data } = useSelector((state) => state?.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginUser = async (values) => {
     dispatch(loginUser(values));
-    dispatch(verifyToken());
+    // dispatch(verifyToken());
   };
   useEffect(() => {
     console.log("state", data);
@@ -61,11 +68,7 @@ export default function Login() {
             <h1 className="my-3 mx-3">Login</h1>
             <div className="loginForm">
               <Formik
-                initialValues={{
-                  email: "",
-                  password: "",
-                  agreeToTerms: false,
-                }}
+                initialValues={initialValues}
                 validationSchema={SignupSchema}
                 onSubmit={(values) => {
                   handleLoginUser(values);

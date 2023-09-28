@@ -11,6 +11,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import OTPForm from "./components/OTPForm";
 import UpdatePassword from "./components/UpdatePassword";
 import UpdateProfile from "./components/UpdateProfile";
+import Prices from "./components/Prices";
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/auth/verify-otp" element={<OTPForm />}></Route>
         <Route path="/user/update-profile" element={<UpdateProfile/>}></Route>
         <Route path="/auth/update-password" element={<UpdatePassword/>}></Route>
+        <Route path="/prices-and-quotes" element={<Prices/>}></Route>
       </Routes>
     </>
   );
