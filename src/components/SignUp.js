@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../redux/slices/auth";
-import { verifyToken } from "../redux/slices/user";
 import { Link } from "react-router-dom";
 import "../styling/App.css";
 import countries from "./CountriesList";
@@ -58,22 +57,21 @@ export default function SignUp() {
     resetForm({ values: "" });
   };
   useEffect(() => {
-    if (isLogged && data?.status===200) {
+    if (isLogged && data?.status === 200) {
       toast.success("User Registered Successfull");
       setTimeout(() => {
         navigate("/");
       }, 2000);
-    }else if(isLogged && data?.status===0){
+    } else if (isLogged && data?.status === 0) {
       toast.error("User Already Exists");
     }
-  }, [data]);
+  }, [data,isLogged]);
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
       >
-        <ToastContainer />
         <Link to={"/"}>
           <img
             className="p-3"
@@ -82,6 +80,7 @@ export default function SignUp() {
           />
         </Link>
       </nav>
+      <ToastContainer />
       <div className="row">
         <div className="col-md-3"></div>
         <div className="col-md-6">

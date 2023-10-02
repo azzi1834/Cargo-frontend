@@ -10,19 +10,13 @@ const persistConfig = {
   storage: storageSession,
 };
 const rootReducer = combineReducers({
-  auth:authReducer,
-  user:userReducer,
+  auth: authReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const Store = configureStore({
-  // reducer: {
-  // auth: authReducer,
-  // auth: persistedReducer(userPersistConfig, userReducer),
-  // user: userReducer,
-  // user: persistedReducer(authPersistConfig, authReducer),
-  // },
   reducer: persistedReducer,
   middleware: [thunk],
 });

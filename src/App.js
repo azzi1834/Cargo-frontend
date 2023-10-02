@@ -11,11 +11,12 @@ import ForgotPassword from "./components/ForgotPassword";
 import OTPForm from "./components/OTPForm";
 import UpdatePassword from "./components/UpdatePassword";
 import UpdateProfile from "./components/UpdateProfile";
-import Prices from "./components/Prices";
+import Prices from "./components/Prices/Prices";
+import Overview from "./components/Prices/Overview";
 function App() {
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/auth/register" element={<SignUp />}></Route>
         <Route path="/auth/login" element={<Login />}></Route>
@@ -30,7 +31,8 @@ function App() {
         <Route path="/user/update-profile" element={<UpdateProfile/>}></Route>
         <Route path="/auth/update-password" element={<UpdatePassword/>}></Route>
         <Route path="/prices-and-quotes" element={<Prices/>}></Route>
-      </Routes>
+      </Routes> */}
+      <Overview />
     </>
   );
 }

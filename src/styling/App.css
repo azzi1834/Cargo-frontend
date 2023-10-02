@@ -57,7 +57,7 @@ body {
 }
 
 /* Track button styles */
-.track-button{
+.track-button {
   background-color: #043358;
   color: white;
   border: 1px;
@@ -66,6 +66,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .registerUser-button {
   background-color: #043358;
   color: white;
@@ -75,12 +76,14 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .track-button:hover {
   background-color: #043358;
   opacity: 0.9;
   transition: 0.2s ease-in-out;
 }
-.track-button:hover::after{
+
+.track-button:hover::after {
   background-color: #043358;
   opacity: 0.9;
   transition: 0.2s ease-in;
@@ -139,46 +142,140 @@ li {
   text-decoration: none;
   color: black;
   padding: 8px 0px;
-  
+
 }
-.footer-Links>a:hover{
+
+.footer-Links>a:hover {
   text-decoration: underline;
 }
 
 /* slider images in IndustrySectorCorousel */
-.slider-images{
+.slider-images {
   width: 200px;
   height: 200px;
 }
-.company-slider-images{
+
+.company-slider-images {
   width: 150px;
   height: 150px;
 }
-.image-div{
+
+.image-div {
   margin-top: 30px;
   padding: 10px;
   margin-bottom: 20px;
   /* transition: 1s linear; */
 }
-.image-div:hover{
+
+.image-div:hover {
   border: 1px solid rgb(126, 121, 121, 0.3);
   border-radius: 7px;
 }
+
 /* slider images in Company Corousel */
-.companySlider-div{
+.companySlider-div {
   margin-top: 30px;
   padding: 10px;
   margin-bottom: 20px;
 }
+
 /* navbar items */
-.nav-items{
+.nav-items {
   padding-right: 40px;
 }
-.nav-items>a:hover{
-  text-decoration:underline ;
+
+.nav-items>a:hover {
+  text-decoration: underline;
 }
-.nav-items2{
+
+.nav-items2 {
   padding-right: 40px;
   justify-content: center;
   align-items: center;
+}
+
+/* button styling on Prices page  */
+.start {
+  background-color: rgb(43, 173, 173);
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 0px;
+  margin: 40px 10px;
+}
+
+.start:hover {
+  background-color: rgb(43, 173, 173, 0.8);
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 0px;
+}
+
+.dismiss {
+  /* style={{backgroundColor:"white",border:"0px",color:"black"}} */
+  background-color: white;
+  color: black;
+  border: 0px;
+  padding: 5px 10px;
+  transition: 2s ease-in-out;
+}
+
+.dismiss:hover {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.new-to-logistics {
+  border: 1px solid rgb(126, 121, 121, 0.3);
+  border-radius: 5px;
+  margin: 30px;
+}
+
+.logistic-items {
+  align-items: center;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid rgb(126, 121, 121, 0.3);
+}
+
+.logistic-items:hover {
+  border: 1px solid rgb(126, 121, 121, 0.9);
+}
+
+/* -----sidebar items in Prices------ */
+.sidebar-item {
+  padding-left: 12px;
+  margin-left: 25px;
+  padding-bottom: 10px;
+}
+
+.sidebar-item-heading {
+  padding-top: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+/* --------corousel for overview page --------- */
+.cards-services {
+  border: 1px solid rgb(126, 121, 121, 0.4);
+
+}
+
+.cards-services:hover {
+  border: 1px solid rgb(126, 121, 121, 0.9);
+
+}
+
+.transport-services-cards {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.transport-services-cards>h6{
+  margin-top: 20px;
+  margin-left: 10px;
 }

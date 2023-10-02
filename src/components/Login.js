@@ -15,6 +15,10 @@ const SignupSchema = Yup.object().shape({
 
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    )
     .required("Password must be required"),
 });
 
@@ -26,7 +30,7 @@ export default function Login() {
   };
   const { data } = useSelector((state) => state.auth);
   const { isLogged } = useSelector((state) => state.auth);
-  console.log("data",data);
+  console.log("data", data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginUser = async (values) => {
