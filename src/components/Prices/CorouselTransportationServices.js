@@ -4,9 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import oversizedCargo from "./../../images/Prices/oversized-cargo.svg";
-import lcl from "./../../images/Prices/lcl.svg";
-import landContainer from "./../../images/Prices/inland-price-lookup.svg";
-import oceanRequest from "./../../images/Prices/shipping-quote-with add-ons.svg";
+import airFreight from "./../../images/Prices/air-freight.svg";
+import contract from "./../../images/Prices/contract.svg";
+import inlandDelivery from "./../../images/Prices/inland-delivery.svg";
+import cargoInsurance from "./../../images/Prices/cargo-insurance.svg";
+import ecoDelivery from "./../../images/Prices/eco-delivery.svg";
+import valueProtect from "./../../images/Prices/value-protect.svg";
+import FavAndLearnmore from "./FavAndLearnmore";
 
 export default function CorouselTransportationServices() {
   const settings = {
@@ -14,7 +18,7 @@ export default function CorouselTransportationServices() {
     infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     responsive: [
       {
         breakpoint: 768,
@@ -37,7 +41,10 @@ export default function CorouselTransportationServices() {
       <div className="row gx-0">
         <p className="mt-4">POPULAR</p>
         <h5 className="col-sm-8">Popular in Transportation services</h5>
-        <div className="col-sm-4 d-flex flex-row-reverse">View all</div>
+        <div className="col-sm-4 d-flex flex-row-reverse">
+          <i className="bi bi-arrow-right ms-1"></i>
+          View all
+        </div>
       </div>
       <div className="carousel-container my-3">
         <Slider {...settings}>
@@ -47,67 +54,105 @@ export default function CorouselTransportationServices() {
               <h6>Oversized cargo shipping prices</h6>
             </div>
             <div className="card-body">
-              <h5 className="card-title">Ocean and Maersk Spot</h5>
               <p className="card-text">
                 Book your Ocean & Inland shipments online at fixed container
                 shipping prices and with a loading guarantee to know when they
                 will arrive.
               </p>
-              <a href="#" className="btn btn-primary">
-                Instant Prices
-              </a>
+
+              <FavAndLearnmore btnName={"Instant Prices"} />
             </div>
           </div>
 
           <div className="card cards-services">
             <div className="transport-services-cards">
-              <img src={oversizedCargo} alt="oversizedCargo" />
-              <h6>Oversized cargo shipping prices</h6>
+              <img src={airFreight} alt="airFreight" />
+              <h6>Air Freight</h6>
             </div>
             <div className="card-body">
-              <h5 className="card-title">Less-Than-Container Load (LCL)</h5>
               <p className="card-text">
-                With Maersk Less-Than-Container Load you have the flexibility to
-                ship small amounts of cargo quickly based on your needs.
+                Maersk Air Freight is fast, frequent, predictable and is a
+                reliable way to respond to supply chain challenges you may face.
               </p>
-              <a href="#" className="btn btn-primary">
-                Book Now
-              </a>
+
+              <FavAndLearnmore btnName={"Instant Prices"} />
             </div>
           </div>
 
           <div className="card cards-services">
             <div className="transport-services-cards">
-              <img src={oversizedCargo} alt="oversizedCargo" />
-              <h6>Oversized cargo shipping prices</h6>
+              <img src={contract} alt="contract" />
+              <h6>Maersk Contract</h6>
             </div>
             <div className="card-body">
-              <h5 className="card-title">Inland container shipping prices</h5>
               <p className="card-text">
-                Use our inland container shipping price look-up feature to find
-                inland container rates online that are already included in your
-                existing contract or look up our tariff rates.
+                Maersk Contract products offer reliability and certainty,
+                regarding space availability on our vessels and transportation
+                costs.
               </p>
-              <a href="#" className="btn btn-primary">
-                Instant Prices
-              </a>
+              <FavAndLearnmore btnName={"Contact us"} />
             </div>
           </div>
 
           <div className="card cards-services">
             <div className="transport-services-cards">
-              <img src={oversizedCargo} alt="oversizedCargo" />
-              <h6 >Oversized cargo shipping prices</h6>
+              <img src={inlandDelivery} alt="inlandDelivery" />
+              <h6>Inland Delivery</h6>
             </div>
             <div className="card-body ">
-              <h5 className="card-title">Ocean quote request</h5>
               <p className="card-text">
-                Request a freight quote, valid up to 90 days for standard and
-                oversized ocean shipments.
+                With Maersk Inland delivery service, you can easily arrange a
+                new pick-up from your supplier’s factory as well as the delivery
+                to your chosen location.
               </p>
-              <Link href="#" className="btn btn-primary mt-auto">
-                Get a quote
-              </Link>
+
+              <FavAndLearnmore btnName={"Contact us"} />
+            </div>
+          </div>
+
+          <div className="card cards-services">
+            <div className="transport-services-cards">
+              <img src={cargoInsurance} alt="cargoInsurance" />
+              <h6>Cargo Insurance</h6>
+            </div>
+            <div className="card-body ">
+              <p className="card-text">
+                Take no chances. Get comprehensive cover for your cargo through
+                Maersk Cargo Insurance, provided by Zurich Insurance.
+              </p>
+
+              <FavAndLearnmore btnName={"Instant Prices"} />
+            </div>
+          </div>
+
+          <div className="card cards-services">
+            <div className="transport-services-cards">
+              <img src={ecoDelivery} alt="ecoDelivery" />
+              <h6>ECO Delivery</h6>
+            </div>
+            <div className="card-body ">
+              <p className="card-text">
+                Transport your goods in a more sustainable way. Maersk ECO
+                Delivery offers immediate CO₂ savings and provides you with
+                green fuel as an alternative to fossil fuels.
+              </p>
+
+              <FavAndLearnmore btnName={"Get a quote"} />
+            </div>
+          </div>
+
+          <div className="card cards-services">
+            <div className="transport-services-cards">
+              <img src={valueProtect} alt="valueProtect" />
+              <h6>Value Protect</h6>
+            </div>
+            <div className="card-body ">
+              <p className="card-text">
+                A solution to keep your cargo protected from logistics-related
+                risks.
+              </p>
+
+              <FavAndLearnmore btnName={"Book now"} />
             </div>
           </div>
         </Slider>

@@ -260,9 +260,17 @@ li {
 }
 
 /* --------corousel for overview page --------- */
+
+.card-img-top {
+  height: 200px;
+}
+
+.carousel-container {
+  margin-right: 20px;
+}
+
 .cards-services {
   border: 1px solid rgb(126, 121, 121, 0.4);
-
 }
 
 .cards-services:hover {
@@ -270,12 +278,114 @@ li {
 
 }
 
+.cards-services>.card-body>p {
+  font-size: 15px;
+  color: rgb(83, 81, 81, 0.9);
+}
+
 .transport-services-cards {
   display: flex;
   flex-direction: row;
   padding: 10px;
 }
-.transport-services-cards>h6{
+
+.transport-services-cards>h6 {
   margin-top: 20px;
   margin-left: 10px;
+}
+
+.view-icons {
+  border: 1px solid rgb(126, 121, 121);
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: auto;
+}
+
+.search-icon {
+  border: 1px solid rgb(126, 121, 121);
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: auto;
+}
+
+/* ----------FavAndLearnmore----------------- */
+.favorite-and-learnmore {
+  margin-right: 8px;
+  padding: 4px 10px;
+  transition: border 0.01s ease-out;
+  cursor: pointer;
+}
+
+.favorite-and-learnmore:hover {
+  border: 1px solid rgb(126, 121, 121, 0.7);
+  padding: 4px 10px;
+  margin-right: 11px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-button {
+  background-color: #043358;
+  border: 0px;
+}
+
+/* ------------Transportation Services ------------ */
+.main {
+  /* background-color: rgb(216, 213, 213); */
+  margin-right: 20px;
+  padding: 5px 15px;
+}
+
+.transport-service-options {
+  display: flex;
+  padding-right: 20px;
+
+}
+
+#services-options {
+  margin-right: 20px;
+  color: rgb(126, 121, 121);
+  cursor: pointer;
+  font-size: 17px;
+}
+
+#services-options:hover {
+  margin-right: 20px;
+  color: rgb(51, 48, 48);
+  cursor: pointer;
+  font-weight: 17px bold;
+  transition: 0.1ms ease-in;
+  box-shadow: 3px;
+}
+
+#services-options.active {
+  border-bottom: 2px solid rgb(126, 121, 121);
+
+}
+
+.card-services-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-down-btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-down-btn {
+  border: 1px solid rgb(126, 121, 121);
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+.scroll-down-btn:hover {
+  background-color: rgb(226, 222, 222, 0.7);
+  transition: 0.2s ease-in-out;
 }

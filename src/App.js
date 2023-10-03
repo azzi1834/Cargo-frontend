@@ -13,6 +13,7 @@ import UpdatePassword from "./components/UpdatePassword";
 import UpdateProfile from "./components/UpdateProfile";
 import Prices from "./components/Prices/Prices";
 import Overview from "./components/Prices/Overview";
+import TransportationServices from "./components/Prices/TransportationServices";
 function App() {
   return (
     <>
@@ -28,11 +29,14 @@ function App() {
           element={<ForgotPassword />}
         ></Route>
         <Route path="/auth/verify-otp" element={<OTPForm />}></Route>
-        <Route path="/user/update-profile" element={<UpdateProfile/>}></Route>
-        <Route path="/auth/update-password" element={<UpdatePassword/>}></Route>
-        <Route path="/prices-and-quotes" element={<Prices/>}></Route>
+        <Route path="/user/update-profile" element={<UpdateProfile />}></Route>
+        <Route
+          path="/auth/update-password"
+          element={<UpdatePassword />}
+        ></Route>
+        <Route path="/prices-and-quotes" element={<Prices />}></Route>
       </Routes> */}
-      <Overview />
+      <Prices />
     </>
   );
 }

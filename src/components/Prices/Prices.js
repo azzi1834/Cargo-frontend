@@ -41,11 +41,11 @@ export default function Prices() {
       ) : (
         ""
       )}
-      <div class="row">
-        <div class="col-sm">
+      <div className="row gx-0">
+        <div className="col-sm">
           <PricesSidebar />
         </div>
-        <div class="col-sm-9">
+        <div className="col-sm-9">
           <PricesNavpage />
         </div>
       </div>
