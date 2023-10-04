@@ -5,6 +5,7 @@ import NewLogisticsUser from "../NewLogisticsUser";
 import { Link } from "react-router-dom";
 import PricesSidebar from "./PricesSidebar";
 import PricesNavpage from "./PricesNavpage";
+import { Outlet } from "react-router-dom";
 export default function Prices() {
   const [dismiss, setDismiss] = useState(false);
 
@@ -46,7 +47,7 @@ export default function Prices() {
           <PricesSidebar />
         </div>
         <div className="col-sm-9">
-          <PricesNavpage />
+          <Outlet />
         </div>
       </div>
     </>

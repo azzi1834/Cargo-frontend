@@ -42,66 +42,74 @@ export default function CorouselDigitalServices() {
       </div>
       <div className="carousel-container my-3">
         <Slider {...settings}>
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={apiSolution} alt="apiSolution" />
-              <h6>API Solutions</h6>
-            </div>
-            <div className="card-body">
-              <p className="card-text ">
-                API Solutions are the future of data integrations and are
-                capable of secure, fast data transmissions that can be used to
-                automatically update your information in real-time.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={apiSolution} alt="apiSolution" />
+                <h6>API Solutions</h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text ">
+                  API Solutions are the future of data integrations and are
+                  capable of secure, fast data transmissions that can be used to
+                  automatically update your information in real-time.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
-            </div>
-          </div>
-
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={captainPeter} alt="captainPeter" />
-              <h6>Captain Peter™</h6>
-            </div>
-            <div className="card-body">
-              <p className="card-text">
-                Based on the advantages of our Remote Container Management
-                technology, Captain Peter™ takes care of everyone shipping
-                refrigerated or frozen cargo.
-              </p>
-
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={ediSolution} alt="ediSolution" />
-              <h6>EDI Solutions</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                With Maersk’s Electronic Data Interchange (EDI) your paperwork
-                will be reduced and your business and communication with us
-                become faster.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={captainPeter} alt="captainPeter" />
+                <h6>Captain Peter™</h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text">
+                  Based on the advantages of our Remote Container Management
+                  technology, Captain Peter™ takes care of everyone shipping
+                  refrigerated or frozen cargo.
+                </p>
 
-              <FavAndLearnmore btnName={"Contact us"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={emissionDashboard} alt="emissionDashboard" />
-              <h6>Emissions Dashboard</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                Receive emissions reporting and optimisation insights across all
-                carriers and modes.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={ediSolution} alt="ediSolution" />
+                <h6>EDI Solutions</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  With Maersk’s Electronic Data Interchange (EDI) your paperwork
+                  will be reduced and your business and communication with us
+                  become faster.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Contact us"} />
+              </div>
+            </div>
+          </div>
+
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={emissionDashboard} alt="emissionDashboard" />
+                <h6>Emissions Dashboard</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  Receive emissions reporting and optimisation insights across
+                  all carriers and modes.
+                </p>
+
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
         </Slider>

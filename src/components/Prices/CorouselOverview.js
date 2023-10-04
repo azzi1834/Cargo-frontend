@@ -80,74 +80,82 @@ export default function CorouselOverview() {
       </div>
       <div className="carousel-container card-container my-3">
         <Slider {...settings}>
-          <div className="card cards-services ">
-            <img
-              className="card-img-top"
-              src={oceanMaerskSpot}
-              alt="oceanMaerskSpot"
-              style={{ height: "180px" }}
-            />
-            <div className="card-body">
-              <h5 className="card-title">Ocean and Maersk Spot</h5>
-              <p className="card-text">
-                Book your Ocean & Inland shipments online at fixed container
-                shipping prices and with a loading guarantee to know when they
-                will arrive.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <img
+                className="card-img-top"
+                src={oceanMaerskSpot}
+                alt="oceanMaerskSpot"
+                style={{ height: "180px" }}
+              />
+              <div className="card-body ">
+                <h5 className="card-title">Ocean and Maersk Spot</h5>
+                <p className="card-text">
+                  Book your Ocean & Inland shipments online at fixed container
+                  shipping prices and with a loading guarantee to know when they
+                  will arrive.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <img
-              className="card-img-top"
-              src={lcl}
-              alt="lcl"
-              style={{ height: "180px" }}
-            />
-            <div className="card-body">
-              <h5 className="card-title">Less-Than-Container Load (LCL)</h5>
-              <p className="card-text">
-                With Maersk Less-Than-Container Load you have the flexibility to
-                ship small amounts of cargo quickly based on your needs.
-              </p>
-              <FavAndLearnmore btnName={"Book Now"} />
+          <div className="check">
+            <div className="card cards-services">
+              <img
+                className="card-img-top"
+                src={lcl}
+                alt="lcl"
+                style={{ height: "180px" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">Less-Than-Container Load (LCL)</h5>
+                <p className="card-text">
+                  With Maersk Less-Than-Container Load you have the flexibility
+                  to ship small amounts of cargo quickly based on your needs.
+                </p>
+                <FavAndLearnmore btnName={"Book Now"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <img
-              className="card-img-top"
-              src={landContainer}
-              alt="landContainer"
-              style={{ height: "180px" }}
-            />
-            <div className="card-body">
-              <h5 className="card-title">Inland container shipping prices</h5>
-              <p className="card-text">
-                Use our inland container shipping price look-up feature to find
-                inland container rates online that are already included in your
-                existing contract or look up our tariff rates.
-              </p>
-              <FavAndLearnmore btnName={"Instant Prices"} />
+          <div className="check">
+            <div className="card cards-services">
+              <img
+                className="card-img-top"
+                src={landContainer}
+                alt="landContainer"
+                style={{ height: "180px" }}
+              />
+              <div className="card-body">
+                <h5 className="card-title">Inland container shipping prices</h5>
+                <p className="card-text">
+                  Use our inland container shipping price look-up feature to
+                  find inland container rates online that are already included
+                  in your existing contract or look up our tariff rates.
+                </p>
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <img
-              className="card-img-top"
-              src={oceanRequest}
-              alt="oceanRequest"
-              style={{ height: "180px" }}
-            />
-            <div className="card-body ">
-              <h5 className="card-title">Ocean quote request</h5>
-              <p className="card-text">
-                Request a freight quote, valid up to 90 days for standard and
-                oversized ocean shipments.
-              </p>
-              <FavAndLearnmore btnName={"Get a quote"} />
+          <div className="check">
+            <div className="card cards-services">
+              <img
+                className="card-img-top"
+                src={oceanRequest}
+                alt="oceanRequest"
+                style={{ height: "180px" }}
+              />
+              <div className="card-body ">
+                <h5 className="card-title">Ocean quote request</h5>
+                <p className="card-text">
+                  Request a freight quote, valid up to 90 days for standard and
+                  oversized ocean shipments.
+                </p>
+                <FavAndLearnmore btnName={"Get a quote"} />
+              </div>
             </div>
           </div>
         </Slider>

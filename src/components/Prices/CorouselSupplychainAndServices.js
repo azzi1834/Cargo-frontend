@@ -46,111 +46,125 @@ export default function CorouselSupplychainAndServices() {
       </div>
       <div className="carousel-container my-3">
         <Slider {...settings}>
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={coldChainLogistics} alt="coldChainLogistics" />
-              <h6>Cold Chain Logistics</h6>
-            </div>
-            <div className="card-body">
-              <p className="card-text">
-                End to end temperature controlled supply chain for your
-                sensitive cargo.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={coldChainLogistics} alt="coldChainLogistics" />
+                <h6>Cold Chain Logistics</h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text">
+                  End to end temperature controlled supply chain for your
+                  sensitive cargo.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={customServices} alt="customServices" />
-              <h6>Customs Services</h6>
-            </div>
-            <div className="card-body">
-              <p className="card-text">
-                Our Customs Services can help every importer and exporter that
-                needs to have customs clearance and expedite this process at
-                both origin and destination.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={customServices} alt="customServices" />
+                <h6>Customs Services</h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text">
+                  Our Customs Services can help every importer and exporter that
+                  needs to have customs clearance and expedite this process at
+                  both origin and destination.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={warehousing} alt="warehousing" />
-              <h6>Warehousing and Distribution</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                Maersk takes care of your end-to-end warehousing and
-                distribution logistics, from our strategic network of storage
-                facilities; capable to fulfill your customer’s demands.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={warehousing} alt="warehousing" />
+                <h6>Warehousing and Distribution</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  Maersk takes care of your end-to-end warehousing and
+                  distribution logistics, from our strategic network of storage
+                  facilities; capable to fulfill your customer’s demands.
+                </p>
 
-              <FavAndLearnmore btnName={"Contact us"} />
+                <FavAndLearnmore btnName={"Contact us"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={depotServices} alt="depotServices" />
-              <h6>Depot Services</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                Container depots are essential nodes that act as key connectors
-                expediting the import and export of your cargo.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={depotServices} alt="depotServices" />
+                <h6>Depot Services</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  Container depots are essential nodes that act as key
+                  connectors expediting the import and export of your cargo.
+                </p>
 
-              <FavAndLearnmore btnName={"Instant Prices"} />
+                <FavAndLearnmore btnName={"Instant Prices"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={ecommerceLogistics} alt="ecommerceLogistics" />
-              <h6>E-Commerce Logistics</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                Optimise your end-to-end e-commerce logistics, including
-                e-fulfilment, last-mile and cross-border delivery.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={ecommerceLogistics} alt="ecommerceLogistics" />
+                <h6>E-Commerce Logistics</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  Optimise your end-to-end e-commerce logistics, including
+                  e-fulfilment, last-mile and cross-border delivery.
+                </p>
 
-              <FavAndLearnmore btnName={"Get a quote"} />
+                <FavAndLearnmore btnName={"Get a quote"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={maerskFlow} alt="maerskFlow" />
-              <h6>Maersk Flow</h6>
-            </div>
-            <div className="card-body ">
-              <p className="card-text">
-                Maersk Flow is a self-service digital supply chain solution.
-                With visibility into your supply chain operations, you can take
-                the right action at the right time and be in control of your
-                logistics operations.
-              </p>
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={maerskFlow} alt="maerskFlow" />
+                <h6>Maersk Flow</h6>
+              </div>
+              <div className="card-body ">
+                <p className="card-text">
+                  Maersk Flow is a self-service digital supply chain solution.
+                  With visibility into your supply chain operations, you can
+                  take the right action at the right time and be in control of
+                  your logistics operations.
+                </p>
 
-              <FavAndLearnmore btnName={"Book now"} />
+                <FavAndLearnmore btnName={"Book now"} />
+              </div>
             </div>
           </div>
 
-          <div className="card cards-services">
-            <div className="transport-services-cards">
-              <img src={supplychainManagement} alt="supplychainManagement" />
-              <h6>Supply Chain Management</h6>
-            </div>
-            <div className="card-body">
-              <p className="card-text">
-                Maersk SCM solutions combine shipment data and stakeholder
-                management systems to streamline your logistics end-to-end.
-              </p>
-              <FavAndLearnmore btnName={"Contact us"} />
+          <div className="check">
+            <div className="card cards-services">
+              <div className="transport-services-cards">
+                <img src={supplychainManagement} alt="supplychainManagement" />
+                <h6>Supply Chain Management</h6>
+              </div>
+              <div className="card-body">
+                <p className="card-text">
+                  Maersk SCM solutions combine shipment data and stakeholder
+                  management systems to streamline your logistics end-to-end.
+                </p>
+                <FavAndLearnmore btnName={"Contact us"} />
+              </div>
             </div>
           </div>
         </Slider>

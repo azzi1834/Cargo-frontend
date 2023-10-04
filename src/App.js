@@ -14,10 +14,12 @@ import UpdateProfile from "./components/UpdateProfile";
 import Prices from "./components/Prices/Prices";
 import Overview from "./components/Prices/Overview";
 import TransportationServices from "./components/Prices/TransportationServices";
+import SupplyChainAndLogistics from "./components/Prices/SupplyChainAndLogistics";
+import DigitalServices from "./components/Prices/DigitalServices";
 function App() {
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/auth/register" element={<SignUp />}></Route>
         <Route path="/auth/login" element={<Login />}></Route>
@@ -34,9 +36,17 @@ function App() {
           path="/auth/update-password"
           element={<UpdatePassword />}
         ></Route>
-        <Route path="/prices-and-quotes" element={<Prices />}></Route>
-      </Routes> */}
-      <Prices />
+        {/* --------------------- */}
+        <Route path="/prices-and-quotes" element={<Prices />}>
+          <Route index element={<Overview />}></Route>
+          <Route
+            path="transportation-services"
+            element={<TransportationServices />}
+          ></Route>
+          <Route path="logistics" element={<SupplyChainAndLogistics />}></Route>
+          <Route path="digital-services" element={<DigitalServices />}></Route>
+        </Route>
+      </Routes>
     </>
   );
 }

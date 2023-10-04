@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { toast ,ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignupSchema = Yup.object().shape({
@@ -23,15 +23,15 @@ export default function OTPForm() {
   };
   const { data } = useSelector((state) => state?.user);
   useEffect(() => {
-    console.log("data",data);
+    console.log("data", data);
     if (data?.data?.status === 200) {
-      toast.success("OTP verified successfully")
+      toast.success("OTP verified successfully");
       setTimeout(() => {
         navigate("/auth/update-password");
       }, 2000);
     }
-    if(data?.data?.status===0){
-      toast.error("Invalid OTP")
+    if (data?.data?.status === 0) {
+      toast.error("Invalid OTP");
     }
   }, [data]);
   return (
@@ -39,7 +39,7 @@ export default function OTPForm() {
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
-      ><ToastContainer/>
+      >
         <Link to={"/"}>
           <img
             className="p-3"
@@ -48,6 +48,7 @@ export default function OTPForm() {
           />
         </Link>
       </nav>
+      <ToastContainer />
       <div className="row">
         <div className="col-md-3"></div>
         <div className="col-md-6">

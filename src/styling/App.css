@@ -389,3 +389,8 @@ li {
   background-color: rgb(226, 222, 222, 0.7);
   transition: 0.2s ease-in-out;
 }
+
+.check {
+  /* border: 1px solid brown; */
+  padding: 10px;
+}
