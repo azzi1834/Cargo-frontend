@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import CorouselCard from "./CorouselCard";
 import FavAndLearnmore from "./FavAndLearnmore";
 import coldChainLogistics from "./../../images/Prices/coldchainlogistics.svg";
 import customServices from "./../../images/Prices/customservices.svg";
@@ -12,6 +13,28 @@ import maerskFlow from "./../../images/Prices/maersk-flow.svg";
 import supplychainManagement from "./../../images/Prices/depot-services.svg";
 
 export default function CorouselSupplychainAndServices() {
+  const cardData = [
+    {
+      imgName: coldChainLogistics,
+      cardTitle: "Cold Chain Logistics",
+      cardText:
+        "End to end temperature controlled supply chain for your sensitive cargo.",
+      btnName: "Instant Prices",
+    },
+    {
+      imgName: customServices,
+      cardTitle: "Customs Services",
+      cardText:
+        "Our Customs Services can help every importer and exporter that needs to have customs clearance and expedite this process at both origin and destination.",
+      btnName: "Instant Prices",
+    },
+    {
+      imgName: warehousing,
+      cardTitle: "Warehousing and Distribution",
+      cardText: "This is card 3.",
+      btnName: "Instant Prices",
+    },
+  ];
   const settings = {
     dots: true,
     infinite: false,
@@ -46,6 +69,14 @@ export default function CorouselSupplychainAndServices() {
       </div>
       <div className="carousel-container my-3">
         <Slider {...settings}>
+          {/* {cardData.map((card, index) => (
+            <CorouselCard
+              key={index}
+              imgName={card.imgName}
+              title={card.cardTitle}
+              text={card.cardText}
+            />
+          ))} */}
           <div className="check">
             <div className="card cards-services">
               <div className="transport-services-cards">

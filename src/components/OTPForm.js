@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "../styling/App.css";
-import "../styling/ForgotPassword.css";
 import { Link } from "react-router-dom";
 import { verifyOTP, verifyToken } from "../redux/slices/user";
 import { useDispatch, useSelector } from "react-redux";

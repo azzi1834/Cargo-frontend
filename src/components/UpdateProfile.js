@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePassword, verifyToken } from "../redux/slices/user";
-import {toast,ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { logout } from "../redux/slices/auth";
+import { useNavigate } from "react-router-dom";
+
 const passwordSchema = Yup.object().shape({
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
@@ -19,22 +21,38 @@ const passwordSchema = Yup.object().shape({
 export default function UpdateProfile() {
   const dispatch = useDispatch();
   const handleLogout = () => {
-    console.log("logout");
+    toast("Logout");
     sessionStorage.clear();
     localStorage.clear();
     dispatch(logout());
-    toast("Logout");
   };
   const handleUpdatePassword = (value) => {
     dispatch(verifyToken());
     dispatch(updatePassword(value.password));
   };
+  const { data } = useSelector((state) => state.user.data);
+  const { isLogged } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("state", data);
+    console.log("logged", isLogged);
+    if (data?.data?.status === 200) {
+      toast.success("Password Updated Successfull");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    }
+    if (data?.data?.status === 401) {
+      toast.error("Something went wrong");
+    }
+  }, [data]);
   return (
     <>
       <nav
         className="navbar navbar-light"
         style={{ border: "1px solid rgba(126, 121, 121, 0.3)" }}
-      ><ToastContainer/>
+      >
         <Link to={"/"}>
           <img
             className="p-3"
@@ -42,9 +60,12 @@ export default function UpdateProfile() {
             alt=""
           />
         </Link>
-      </nav>
+      </nav>{" "}
+      <ToastContainer />
       <div>
-        <h1 className="my-3 mx-3 d-flex justify-content-center">User Settings</h1>
+        <h1 className="my-3 mx-3 d-flex justify-content-center">
+          User Settings
+        </h1>
         <p className="m-3">
           <span className="m-3">
             <svg
@@ -64,16 +85,35 @@ export default function UpdateProfile() {
           </span>
           Your Profile
         </p>
+        <hr className="my-3 mx-5" />
+        <div className="row">
+          <p className="mx-5">
+            You will soon be able to edit your profile but for the moment please
+            contact customer service if you want to make changes.
+          </p>
+          <div className="col-md-6">
+            <div className="row mx-5">
+              <div className="col-sm-6">
+                <label htmlFor="username">
+                  Username{data?.dataValues?.username}
+                </label>
+                <div>
+                  <input type="text" value={data?.dataValues?.username} />
+                </div>
+              </div>
+              <div className="col-sm-6"></div>
+            </div>
+          </div>
+        </div>
+        <hr className="my-3 mx-5" />
         <h3 className="mx-5">Update Password</h3>
       </div>
       <div className="row">
         <div className="col-md-7 mx-5">
           <Formik
             initialValues={{
-              
               password: "",
               confirmPassword: "",
-              
             }}
             validationSchema={passwordSchema}
             onSubmit={(values) => {
@@ -124,7 +164,10 @@ export default function UpdateProfile() {
         <div className="col-md-8">
           <h3 className="mx-3 justify-content-center">Exit from account</h3>
           <Link to={"/"}>
-            <button className="btn btn-danger bg-light border-1 text-danger w-50 mx-5 my-3" onClick={handleLogout}>
+            <button
+              className="btn btn-danger bg-light border-1 text-danger w-50 mx-5 my-3"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </Link>

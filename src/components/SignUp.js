@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import countries from "./CountriesList";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+
 const SignupSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
   firstName: Yup.string().required("First Name is required"),
@@ -65,7 +66,7 @@ export default function SignUp() {
     } else if (isLogged && data?.status === 0) {
       toast.error("User Already Exists");
     }
-  }, [data,isLogged]);
+  }, [data, isLogged]);
   return (
     <>
       <nav

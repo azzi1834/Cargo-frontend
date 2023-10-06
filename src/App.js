@@ -16,6 +16,9 @@ import Overview from "./components/Prices/Overview";
 import TransportationServices from "./components/Prices/TransportationServices";
 import SupplyChainAndLogistics from "./components/Prices/SupplyChainAndLogistics";
 import DigitalServices from "./components/Prices/DigitalServices";
+import CompleteAccount from "./components/Prices/CompleteAccount";
+import FindCompany from "./components/Prices/FindCompany";
+import RequestMaerskFlow from "./components/Prices/RequestMaerskFlow";
 function App() {
   return (
     <>
@@ -46,6 +49,12 @@ function App() {
           <Route path="logistics" element={<SupplyChainAndLogistics />}></Route>
           <Route path="digital-services" element={<DigitalServices />}></Route>
         </Route>
+        <Route path="/groups" element={<CompleteAccount />}></Route>
+        <Route path="/groups/new-customer" element={<FindCompany />}></Route>
+        <Route
+          path="/groups/maersk-flow"
+          element={<RequestMaerskFlow />}
+        ></Route>
       </Routes>
     </>
   );

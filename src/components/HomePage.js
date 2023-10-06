@@ -10,8 +10,8 @@ export default function HomePage() {
     <>
       <Header />
       <div className="">
-        <div className="row p-5">
-          <div className="col-md-6">
+        <div className="row p-5 gx-0">
+          <div className="col-md-6 px-3">
             <div
               className="p-3"
               style={{
@@ -79,7 +79,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="row p-5">
+        <div className="row p-5 gx-0">
           <div>
             <h3>Logistics solutions</h3>
           </div>
@@ -104,7 +104,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="row d-flex flex-row p-3">
+        <div className="row d-flex " style={{ margin: "30px" }}>
           <div className="col-md-4">
             <Link
               to={"/transportation-services"}
@@ -168,7 +168,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className="row p-5 pe-0">
+        <div className="row p-5 pe-0 gx-0">
           <div>
             <h3>Industry Sectors</h3>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="row gx-0" style={{ marginRight: "30px" }}>
         <CompaniesCorousel />
       </div>
       <div className="mt-3">

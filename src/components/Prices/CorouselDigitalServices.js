@@ -8,6 +8,28 @@ import apiSolution from "./../../images/Prices/apisolution.svg";
 import ediSolution from "./../../images/Prices/edi.svg";
 import emissionDashboard from "./../../images/Prices/co2.svg";
 export default function CorouselDigitalServices() {
+  const cardData = [
+    {
+      imgName: captainPeter,
+      cardTitle: "Card 1",
+      cardText: "This is card 1.",
+    },
+    {
+      imgName: apiSolution,
+      cardTitle: "Card 1",
+      cardText: "This is card 1.",
+    },
+    {
+      imgName: ediSolution,
+      cardTitle: "Card 2",
+      cardText: "This is card 2.",
+    },
+    {
+      imgName: emissionDashboard,
+      cardTitle: "Card 3",
+      cardText: "This is card 3.",
+    },
+  ];
   const settings = {
     dots: true,
     infinite: false,
@@ -44,7 +66,7 @@ export default function CorouselDigitalServices() {
         <Slider {...settings}>
           <div className="check">
             <div className="card cards-services">
-              <div className="transport-services-cards">
+              <div className="transport-services-cards h-100">
                 <img src={apiSolution} alt="apiSolution" />
                 <h6>API Solutions</h6>
               </div>
@@ -62,7 +84,7 @@ export default function CorouselDigitalServices() {
 
           <div className="check">
             <div className="card cards-services">
-              <div className="transport-services-cards">
+              <div className="transport-services-cards h-100">
                 <img src={captainPeter} alt="captainPeter" />
                 <h6>Captain Peter™</h6>
               </div>
@@ -79,7 +101,7 @@ export default function CorouselDigitalServices() {
           </div>
 
           <div className="check">
-            <div className="card cards-services">
+            <div className="card cards-services h-100">
               <div className="transport-services-cards">
                 <img src={ediSolution} alt="ediSolution" />
                 <h6>EDI Solutions</h6>
@@ -98,7 +120,7 @@ export default function CorouselDigitalServices() {
 
           <div className="check">
             <div className="card cards-services">
-              <div className="transport-services-cards">
+              <div className="transport-services-cards h-100">
                 <img src={emissionDashboard} alt="emissionDashboard" />
                 <h6>Emissions Dashboard</h6>
               </div>

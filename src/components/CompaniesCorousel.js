@@ -11,7 +11,7 @@ export default class MultipleItem extends Component {
       slidesToScroll: 6,
     };
     return (
-      <div>
+      <div className="company-corousel">
         <Slider {...settings}>
           <div className="companySlider-div">
             <img

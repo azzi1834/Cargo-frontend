@@ -5,9 +5,9 @@ import "../styling/App.css";
 
 export default function () {
   return (
-    <footer>
+    <footer style={{ margin: "0px 20px" }}>
       <hr />
-      <div className="row">
+      <div className="row gx-0 p-4">
         <div className="col-md-3 d-flex flex-column ">
           <ul style={{ listStyleType: "none" }} className="footer-Links">
             <Link to={"/about-us"}>About Us</Link>
@@ -31,24 +31,30 @@ export default function () {
         <div className="col-md-3 ">
           <ul style={{ listStyleType: "none" }} className="footer-Links">
             <Link to={"/terms-and-conditions"}>Terms & conditions</Link>
-            <Link to={"/data-privacy-notifications"}>Data Privacy Notification</Link>
+            <Link to={"/data-privacy-notifications"}>
+              Data Privacy Notification
+            </Link>
             <Link to={"/brand-protection"}>Brand Protection</Link>
             <Link to={"/cookie-policy"}>Cookie policy</Link>
             <Link to={"/cookie-preferences"}>Cookie preferences</Link>
-            <Link to={"/unsolicited-submissions-policy"}>Unsolicited Submissions Policy</Link>
+            <Link to={"/unsolicited-submissions-policy"}>
+              Unsolicited Submissions Policy
+            </Link>
           </ul>
         </div>
         <div className="col-md-3 ">
           <ul style={{ listStyleType: "none" }} className="footer-Links">
             <Link to={"/container-tracking"}>Container tracking</Link>
-            <Link to={"/supply-chain-and-logistics"}>Supply Chain and Logistics</Link>
+            <Link to={"/supply-chain-and-logistics"}>
+              Supply Chain and Logistics
+            </Link>
             <Link to={"/transportation-services"}>Transportation Services</Link>
             <Link to={"/vessel-schedules"}>Vessel schedules</Link>
             <Link to={"/container-sales"}>Container sales</Link>
           </ul>
         </div>
       </div>
-      <div className="row">
+      <div className="row gx-0 p-4">
         <div className="col-md-4">
           <div className="d-flex p-3">
             <img
@@ -59,7 +65,6 @@ export default function () {
                 height: "40px",
               }}
             />
-            
           </div>
           <div>
             <p className="mx-5">&copy;A.P.Moller - Maersk</p>

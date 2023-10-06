@@ -9,7 +9,10 @@ export default function FavAndLearnmore({ btnName }) {
     <>
       <div className="row">
         <div className="col-sm-7">
-          <Link href="#" className="btn btn-primary mt-auto btn-sm card-button">
+          <Link
+            to={"/groups"}
+            className="btn btn-primary mt-auto btn-sm card-button"
+          >
             {btnName}
           </Link>
         </div>

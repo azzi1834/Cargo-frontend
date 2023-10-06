@@ -127,7 +127,6 @@ li {
 /* manage logistics solutions cards on homepage */
 .logistic-card {
   border: 1px solid rgb(126, 121, 121, 0.3);
-  height: 400px;
 }
 
 .logistic-card:hover {
@@ -160,19 +159,39 @@ li {
   height: 150px;
 }
 
-.image-div {
-  margin-top: 30px;
-  padding: 10px;
-  margin-bottom: 20px;
-  /* transition: 1s linear; */
+
+.industry-corousel {
+  margin-right: 20px;
+  padding: 20px 30px;
 }
 
-.image-div:hover {
+.industry-corousel-card-img {
+  display: flex;
+  justify-content: center;
+}
+
+.industry-corousel-card {
+  margin-top: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: 0.1ms linear;
+}
+
+.industry-corousel-card:hover {
   border: 1px solid rgb(126, 121, 121, 0.3);
   border-radius: 7px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* slider images in Company Corousel */
+.company-corousel {
+  /* background-color: grey; */
+  margin: 30px;
+  padding: 20px 40px;
+}
+
 .companySlider-div {
   margin-top: 30px;
   padding: 10px;
@@ -268,6 +287,7 @@ li {
 .carousel-container {
   margin-right: 20px;
 }
+
 
 .cards-services {
   border: 1px solid rgb(126, 121, 121, 0.4);
@@ -393,4 +413,67 @@ li {
 .check {
   /* border: 1px solid brown; */
   padding: 10px;
+}
+
+/* -----------Complete Account Page------------- */
+.cards-complete-account {
+  border: 1px solid rgb(126, 121, 121, 0.4);
+  height: 100%;
+  box-shadow: 3px;
+}
+
+.cards-complete-account:hover {
+  border: 1px solid rgb(126, 121, 121, 0.4);
+  transition: box-shadow 0.3s ease;
+
+}
+
+.cards-complete-account>.card-body>p {
+  font-size: 15px;
+  color: rgb(83, 81, 81, 0.9);
+}
+
+.cards-complete-account-img {
+  width: 100%;
+}
+
+.card-button {
+  background-color: #043358;
+}
+
+.card-button:hover {
+  background-color: #043358;
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+
+}
+
+/* -----------Find Company------- */
+.user-details-text {
+  margin: 20px 50px;
+  background-color: rgb(209, 202, 202, 0.3);
+  padding: 10px;
+}
+
+.user-details {
+  margin: 20px 100px;
+
+}
+
+.reset-button {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(126, 121, 121);
+}
+
+.reset-button:hover {
+  background-color: rgb(126, 121, 121, 0.6);
+  color: black;
+  border: 1px solid rgb(126, 121, 121);
+}
+
+/* ----------------Maersk flow access page--------------- */
+.radio-button-details {
+  color: rgb(126, 121, 121, 0.6);
+  margin-left: 30px;
 }

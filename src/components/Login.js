@@ -30,7 +30,6 @@ export default function Login() {
   };
   const { data } = useSelector((state) => state.auth);
   const { isLogged } = useSelector((state) => state.auth);
-  console.log("data", data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginUser = async (values) => {
@@ -38,6 +37,7 @@ export default function Login() {
   };
   useEffect(() => {
     console.log("state", data);
+    console.log("logged", isLogged);
     if (isLogged && data?.status === 200) {
       toast.success("User Login Successfull");
       setTimeout(() => {

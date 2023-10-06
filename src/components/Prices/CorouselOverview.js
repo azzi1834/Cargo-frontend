@@ -41,125 +41,125 @@ export default function CorouselOverview() {
   };
 
   return (
-    <div className="container">
-      <p className="mt-4">FEATURED</p>
-      <div className="row gx-0">
-        <div className="col-sm-8">
-          <h5>
-            Container Shipping Rates for Transportation and Integrated Logistics
-            Services
-          </h5>
-        </div>
-        <div className="col-sm-4 d-flex flex-row-reverse">
-          <div className="mx-1 view-icons">
-            {sideView === "normal" ? (
-              <i class="bi bi-arrows-angle-expand" onClick={handleSideView}></i>
-            ) : (
-              <i
-                class="bi bi-arrows-angle-contract"
-                onClick={handleSideView}
-              ></i>
-            )}
+    <>
+      <div className="container">
+        <p className="mt-4">FEATURED</p>
+        <div className="row gx-0">
+          <div className="col-sm-8">
+            <h5>
+              Container Shipping Rates for Transportation and Integrated
+              Logistics Services
+            </h5>
           </div>
-          <div className="mx-1 search-icon">
-            {toggleView === "grid" ? (
-              <div>
-                <i class="bi bi-grid" onClick={handleToggleView}></i>
-              </div>
-            ) : (
-              <div>
-                <i class="bi bi-list-task" onClick={handleToggleView}></i>
-              </div>
-            )}
-          </div>
+          <div className="col-sm-4 d-flex flex-row-reverse">
+            <div className="mx-1 view-icons">
+              {sideView === "normal" ? (
+                <i
+                  class="bi bi-arrows-angle-expand"
+                  onClick={handleSideView}
+                ></i>
+              ) : (
+                <i
+                  class="bi bi-arrows-angle-contract"
+                  onClick={handleSideView}
+                ></i>
+              )}
+            </div>
+            <div className="mx-1 search-icon">
+              {toggleView === "grid" ? (
+                <div>
+                  <i class="bi bi-grid" onClick={handleToggleView}></i>
+                </div>
+              ) : (
+                <div>
+                  <i class="bi bi-list-task" onClick={handleToggleView}></i>
+                </div>
+              )}
+            </div>
 
-          <div className="mx-1 view-icons">
-            <i class="bi bi-search"></i>
+            <div className="mx-1 view-icons">
+              <i class="bi bi-search"></i>
+            </div>
           </div>
+        </div>
+        <div className="carousel-container card-container my-3">
+          <Slider {...settings}>
+            <div className="check">
+              <div className="card cards-services">
+                <img
+                  className="card-img-top corousel-img"
+                  src={oceanMaerskSpot}
+                  alt="oceanMaerskSpot"
+                />
+                <div className="card-body ">
+                  <h5 className="card-title">Ocean and Maersk Spot</h5>
+                  <p className="card-text">
+                    Book your Ocean & Inland shipments online at fixed container
+                    shipping prices and with a loading guarantee to know when
+                    they will arrive.
+                  </p>
+
+                  <FavAndLearnmore btnName={"Instant Prices"} />
+                </div>
+              </div>
+            </div>
+
+            <div className="check">
+              <div className="card cards-services">
+                <img className="card-img-top" src={lcl} alt="lcl" />
+                <div className="card-body">
+                  <h5 className="card-title">Less-Than-Container Load (LCL)</h5>
+                  <p className="card-text">
+                    With Maersk Less-Than-Container Load you have the
+                    flexibility to ship small amounts of cargo quickly based on
+                    your needs.
+                  </p>
+                  <FavAndLearnmore btnName={"Book Now"} />
+                </div>
+              </div>
+            </div>
+
+            <div className="check">
+              <div className="card cards-services">
+                <img
+                  className="card-img-top"
+                  src={landContainer}
+                  alt="landContainer"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Inland container shipping prices
+                  </h5>
+                  <p className="card-text">
+                    Use our inland container shipping price look-up feature to
+                    find inland container rates online that are already included
+                    in your existing contract or look up our tariff rates.
+                  </p>
+                  <FavAndLearnmore btnName={"Instant Prices"} />
+                </div>
+              </div>
+            </div>
+
+            <div className="check">
+              <div className="card cards-services">
+                <img
+                  className="card-img-top"
+                  src={oceanRequest}
+                  alt="oceanRequest"
+                />
+                <div className="card-body ">
+                  <h5 className="card-title">Ocean quote request</h5>
+                  <p className="card-text">
+                    Request a freight quote, valid up to 90 days for standard
+                    and oversized ocean shipments.
+                  </p>
+                  <FavAndLearnmore btnName={"Get a quote"} />
+                </div>
+              </div>
+            </div>
+          </Slider>
         </div>
       </div>
-      <div className="carousel-container card-container my-3">
-        <Slider {...settings}>
-          <div className="check">
-            <div className="card cards-services">
-              <img
-                className="card-img-top"
-                src={oceanMaerskSpot}
-                alt="oceanMaerskSpot"
-                style={{ height: "180px" }}
-              />
-              <div className="card-body ">
-                <h5 className="card-title">Ocean and Maersk Spot</h5>
-                <p className="card-text">
-                  Book your Ocean & Inland shipments online at fixed container
-                  shipping prices and with a loading guarantee to know when they
-                  will arrive.
-                </p>
-
-                <FavAndLearnmore btnName={"Instant Prices"} />
-              </div>
-            </div>
-          </div>
-
-          <div className="check">
-            <div className="card cards-services">
-              <img
-                className="card-img-top"
-                src={lcl}
-                alt="lcl"
-                style={{ height: "180px" }}
-              />
-              <div className="card-body">
-                <h5 className="card-title">Less-Than-Container Load (LCL)</h5>
-                <p className="card-text">
-                  With Maersk Less-Than-Container Load you have the flexibility
-                  to ship small amounts of cargo quickly based on your needs.
-                </p>
-                <FavAndLearnmore btnName={"Book Now"} />
-              </div>
-            </div>
-          </div>
-
-          <div className="check">
-            <div className="card cards-services">
-              <img
-                className="card-img-top"
-                src={landContainer}
-                alt="landContainer"
-                style={{ height: "180px" }}
-              />
-              <div className="card-body">
-                <h5 className="card-title">Inland container shipping prices</h5>
-                <p className="card-text">
-                  Use our inland container shipping price look-up feature to
-                  find inland container rates online that are already included
-                  in your existing contract or look up our tariff rates.
-                </p>
-                <FavAndLearnmore btnName={"Instant Prices"} />
-              </div>
-            </div>
-          </div>
-
-          <div className="check">
-            <div className="card cards-services">
-              <img
-                className="card-img-top"
-                src={oceanRequest}
-                alt="oceanRequest"
-                style={{ height: "180px" }}
-              />
-              <div className="card-body ">
-                <h5 className="card-title">Ocean quote request</h5>
-                <p className="card-text">
-                  Request a freight quote, valid up to 90 days for standard and
-                  oversized ocean shipments.
-                </p>
-                <FavAndLearnmore btnName={"Get a quote"} />
-              </div>
-            </div>
-          </div>
-        </Slider>
-      </div>
-    </div>
+    </>
   );
 }

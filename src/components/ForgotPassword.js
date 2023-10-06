@@ -29,7 +29,7 @@ export default function ForgotPassword() {
       }, 2000);
     }
     if (data && data?.status === 0) {
-      toast.error(" Email not found");
+      toast(" Email not found");
     }
   }, [data]);
   return (

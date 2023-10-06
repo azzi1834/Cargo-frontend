@@ -9,13 +9,97 @@ import coldchainlogistics from "./../../images/Prices/ccl.svg";
 import apiSolution from "./../../images/Prices/apisolution.svg";
 import captainPeter from "./../../images/Prices/captain-peter.svg";
 import ediSolution from "./../../images/Prices/edi.svg";
+import shippingQuote from "./../../images/Prices/shipping-quote-with add-ons.svg";
 
 export default function TransportationServices() {
-  const [scroll, setScroll] = useState("down");
+  const [scroll, setScroll] = useState("no");
   const [activeForm, setActiveForm] = useState("transportation");
   const handleFormChange = (formName) => {
     setActiveForm(formName);
   };
+  const handleScroll = () => {
+    setScroll(scroll === "no" ? "yes" : "no");
+  };
+  const transportationData = [
+    {
+      imgName: shippingQuote,
+      title: "Ocean quote request",
+      text: "Request a freight quote, valid up to 90 days for standard, oversized and Less-than-Container Load (LCL) ocean shipments.",
+      btnName: "Get a quote",
+    },
+    {
+      imgName: lcl,
+      title: "Less-Than-Container Load (LCL)",
+      text: "With Maersk Less-Than-Container Load you have the flexibility to ship small amounts of cargo quickly based on your needs.",
+      btnName: "Book now",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Air Freight",
+      text: "Maersk Air Freight is fast, frequent, predictable and is a reliable way to respond to supply chain challenges you may face.",
+      btnName: "Instant prices",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Cross Border Rail Transportation",
+      text: "As a dedicated service or as part of a multi modal solution, rail offers faster time-to-market than ocean at substantially lower cost than air freight.",
+      btnName: "Contact us",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Maersk Contract",
+      text: "Maersk Contract products offer reliability and certainty, regarding space availability on our vessels and transportation costs.",
+      btnName: "Contact us",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Inland Delivery",
+      text: "With Maersk Inland delivery service, you can easily arrange a new pick-up from your supplier’s factory as well as the delivery to your chosen location.",
+      btnName: "Contact us",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Cargo Insurance",
+      text: "Take no chances. Get comprehensive cover for your cargo through Maersk Cargo Insurance, provided by Zurich Insurance.",
+      btnName: "Instant prices",
+    },
+    {
+      imgName: shippingQuote,
+      title: "ECO Delivery",
+      text: "Transport your goods in a more sustainable way. Maersk ECO Delivery offers immediate CO₂ savings and provides you with green fuel as an alternative to fossil fuels.",
+      btnName: "Get a quote",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Flex Hub",
+      text: "Flex Hub makes it easier to profit from global demand by placing your cargo closer to its final destination and moving it quickly at the right time.",
+      btnName: "Contact us",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Maersk Accelerate",
+      text: "As a priority offering, Maersk Accelerate saves time and hassle across various milestones in your cargo’s journey through a bundle of express solutions.",
+      btnName: "Contact us",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Truckload transportation",
+      text: "Conventional trucking is the fastest mode of inland transport. Truckload transport ensures reliable delivery of your cargo, from start to end.",
+      btnName: "Book now",
+    },
+    {
+      imgName: shippingQuote,
+      title: "Value Protect",
+      text: "A solution to keep your cargo protected from logistics-related risks.",
+      btnName: "Book now",
+    },
+    // {
+    //   imgName: shippingQuote,
+    //   title: "",
+    //   text: "",
+    //   btnName: "",
+    // },
+  ];
   const renderForm = () => {
     switch (activeForm) {
       case "transportation":
@@ -39,7 +123,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Get Started"} />
                 </div>
               </div>
               <hr />
@@ -79,20 +163,44 @@ export default function TransportationServices() {
               </div>
             </div>
             <hr />
-            <div className="my-4 scroll-down-btn-div ">
-              <button className="scroll-down-btn">
-                <span>
-                  View all <i class="bi bi-arrow-down"></i>
-                </span>
-              </button>
-            </div>
-            {/* <div className="my-4 scroll-down-btn-div ">
-          <button className="scroll-down-btn">
-            <span>
-              View all <i class="bi bi-arrow-up"></i>
-            </span>
-          </button>
-        </div> */}
+            {scroll === "no" ? (
+              <div className="my-4 scroll-down-btn-div ">
+                <button className="scroll-down-btn" onClick={handleScroll}>
+                  <span>
+                    View all <i class="bi bi-arrow-down"></i>
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <>
+                {transportationData.map((card, index) => (
+                  <div key={index} className="row gx-0 mt-4">
+                    <div className="col-sm-1 card-services-img">
+                      <img
+                        src={card.imgName}
+                        alt={card.imgName}
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="col-sm-8">
+                      <h5>{card.title}</h5>
+                      <p>{card.text}</p>
+                    </div>
+                    <div className="col-sm-3">
+                      <FavAndLearnmore btnName={card.btnName} />
+                    </div>
+                    <hr />
+                  </div>
+                ))}
+                <div className="my-4 scroll-down-btn-div ">
+                  <button className="scroll-down-btn" onClick={handleScroll}>
+                    <span>
+                      View less <i class="bi bi-arrow-up"></i>
+                    </span>
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         );
       case "supplyChain":
@@ -111,7 +219,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Contact us"} />
                 </div>
               </div>
               <hr />
@@ -129,7 +237,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Contact us"} />
                 </div>
               </div>
               <hr />
@@ -149,7 +257,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Contact us"} />
                 </div>
               </div>
             </div>
@@ -187,7 +295,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Get Access"} />
                 </div>
               </div>
               <hr />
@@ -205,7 +313,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Get Access"} />
                 </div>
               </div>
               <hr />
@@ -222,7 +330,7 @@ export default function TransportationServices() {
                   </p>
                 </div>
                 <div className="col-sm-3">
-                  <FavAndLearnmore btnName={"Instant prices"} />
+                  <FavAndLearnmore btnName={"Get Access"} />
                 </div>
               </div>
             </div>

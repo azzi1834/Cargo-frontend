@@ -117,12 +117,12 @@ export const updateProfile = createAsyncThunk("updateProfile", async (body) => {
 });
 
 export const sendFeedback = createAsyncThunk("sendFeedback", async (body) => {
-  const email=localStorage.getItem("email");
+  const email = localStorage.getItem("email");
   const token = localStorage.getItem("jwtToken");
   try {
     const response = await axios.post(
       `${process.env.REACT_APP_BASE_URL}/user/feedback`,
-      {body,email},
+      { body, email },
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import PricesSidebar from "./PricesSidebar";
 import PricesNavpage from "./PricesNavpage";
 import { Outlet } from "react-router-dom";
+import Footer from "../Footer";
 export default function Prices() {
   const [dismiss, setDismiss] = useState(false);
 
@@ -50,6 +51,7 @@ export default function Prices() {
           <Outlet />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

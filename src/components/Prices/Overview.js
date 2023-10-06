@@ -4,6 +4,7 @@ import CorouselOverview from "./CorouselOverview";
 import CorouselTransportationServices from "./CorouselTransportationServices";
 import CorouselSupplychainAndServices from "./CorouselSupplychainAndServices";
 import CorouselDigitalServices from "./CorouselDigitalServices";
+import Footer from "../Footer";
 export default function Overview() {
   return (
     <div>
