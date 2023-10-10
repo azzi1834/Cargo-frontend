@@ -1,0 +1,23 @@
+.radioButton {
+    font-size: 30px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.check {
+    padding: 20px;
+}
+
+.checkButton {
+    font-size: 30px;
+
+}
+
+/* .hrLine {
+    align-items: center;
+
+} */
+
+.infoSymbol {
+    font-size: 23px;
+}

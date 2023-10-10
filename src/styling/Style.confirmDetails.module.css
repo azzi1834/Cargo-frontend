@@ -1,0 +1,10 @@
+.detailsBox {
+    background-color: rgb(185, 183, 183);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.dropdown {
+    border: 0px;
+    background-color: aqua;
+}

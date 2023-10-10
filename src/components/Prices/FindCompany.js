@@ -32,7 +32,7 @@ export default function FindCompany() {
     setView(view === "hide" ? "show" : "hide");
   };
   const { data } = useSelector((state) => state?.auth.data);
-  const { data1 } = useSelector((state) => state?.auth);
+  // const { data1 } = useSelector((state) => state?.auth);
 
   const companies = useSelector((state) => state?.user?.data?.data?.company);
   const handleSearchCompany = async (values) => {

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Input, {
+  getCountries,
+  getCountryCallingCode,
+} from "react-phone-number-input/input";
+import en from "react-phone-number-input/locale/en.json";
+import "react-phone-number-input/style.css";
 export default function FavAndLearnmore({ btnName }) {
   const [favorite, setFavorite] = useState("empty");
   const handleFavorite = () => {

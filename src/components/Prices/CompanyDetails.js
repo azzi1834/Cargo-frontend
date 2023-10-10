@@ -10,7 +10,7 @@ const ValidateSchema = Yup.object().shape({
   postalCode: Yup.string().required("Postal code is required"),
   taxCode: Yup.string().required("Tax type code is required"),
 });
-export default function CompanyDetails() {
+export default function CompanyDetails(props) {
   const [viewCompanyDetails, setViewCompanyDetails] = useState("hide");
   const [viewCompanyAddress, setViewCompanyAddress] = useState("hide");
   const [viewTaxDetails, setViewTaxDetails] = useState("hide");
@@ -153,11 +153,7 @@ export default function CompanyDetails() {
                               />
                               No
                             </div>
-                            <ErrorMessage
-                              name="country"
-                              component="div"
-                              className="text-danger"
-                            />
+
                             {showForm ? (
                               ""
                             ) : (
@@ -166,14 +162,14 @@ export default function CompanyDetails() {
                                   Please enter your company website URL
                                 </label>
                                 <Field
-                                  type="text"
+                                  type="url"
                                   name="companyUrl"
                                   id="companyUrl"
                                   className="form-control my-2"
                                   placeholder="Enter your company url"
                                 />
                                 <ErrorMessage
-                                  name="country"
+                                  name="companyUrl"
                                   component="div"
                                   className="text-danger"
                                 />
@@ -347,17 +343,6 @@ export default function CompanyDetails() {
                               className="form-control my-2"
                               placeholder="Enter phone extension"
                             />
-
-                            {/* <label htmlFor="tradingName">
-                          Apartment details (optional)
-                        </label>
-                        <Field
-                          type="text"
-                          name="tradingName"
-                          id="tradingName"
-                          className="form-control my-2"
-                          placeholder=""
-                        /> */}
                           </div>
                         </div>
                         <hr className="mx-5" />

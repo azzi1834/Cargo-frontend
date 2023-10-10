@@ -5,8 +5,12 @@ import supplyChain from "./../../images/supplyChain.jpeg";
 import "./../../styling/App.css";
 import { Link } from "react-router-dom";
 import MyNavbar from "../MyNavbar";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function CompleteAccount() {
+  const dispatch = useDispatch();
+  const { isLogged } = useSelector((state) => state?.auth);
+
   return (
     <>
       <MyNavbar />

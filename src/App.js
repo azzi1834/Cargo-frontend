@@ -51,6 +51,8 @@ import CompleteAccount from "./components/Prices/CompleteAccount";
 import FindCompany from "./components/Prices/FindCompany";
 import RequestMaerskFlow from "./components/Prices/RequestMaerskFlow";
 import CompanyDetails from "./components/Prices/CompanyDetails";
+import ConfirmDetails from "./components/Prices/ConfirmDetails";
+import InstantPrices from "./components/Prices/InstantPrices";
 function App() {
   return (
     <>
@@ -99,6 +101,11 @@ function App() {
           path="/user/additional-details"
           element={<CompanyDetails />}
         ></Route>
+        <Route
+          path="/user/confirm-additional-details"
+          element={<ConfirmDetails />}
+        ></Route>
+        <Route path="/instant-prices" element={<InstantPrices />}></Route>
       </Routes>
       {/* </Suspense> */}
     </>
