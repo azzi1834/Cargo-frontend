@@ -18,7 +18,7 @@ export default function Prices() {
       <MyNavbar />
       {!dismiss ? (
         <div>
-          <div className="row new-to-logistics">
+          <div className="row new-to-logistics gx-0 ">
             <div className="col-md-9 d-flex p-2">
               <img src={newUser} alt="New User" />
               <div className="mx-4 mt-3">

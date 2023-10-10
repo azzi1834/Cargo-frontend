@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const verifyToken = createAsyncThunk("verifyToken", async (body) => {
   const token = localStorage.getItem("jwtToken");
-  console.log(token);
   try {
     if (token) {
       const user = await axios.post(
@@ -136,6 +135,50 @@ export const sendFeedback = createAsyncThunk("sendFeedback", async (body) => {
   }
 });
 
+export const searchCompanies = createAsyncThunk(
+  "searchCompanies",
+  async (body) => {
+    const token = localStorage.getItem("jwtToken");
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/user/searchCompanies`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
+export const completeDetails = createAsyncThunk(
+  "completeDetails",
+  async (body) => {
+    const token = localStorage.getItem("jwtToken");
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/user/companiesDetails`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -242,6 +285,40 @@ const userSlice = createSlice({
       }
     });
     builder.addCase(sendFeedback.rejected, (state, action) => {
+      console.log("Error", action.payload);
+      state.isError = true;
+      state.isLoading = false;
+    });
+    // -------------------Search Companies-------------
+    builder.addCase(searchCompanies.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(searchCompanies.fulfilled, (state, action) => {
+      state.isLoading = false;
+      if (action.payload.error) {
+        state.isError = true;
+      } else {
+        state.data = action.payload;
+      }
+    });
+    builder.addCase(searchCompanies.rejected, (state, action) => {
+      console.log("Error", action.payload);
+      state.isError = true;
+      state.isLoading = false;
+    });
+    // -----------------search complete Details of company -----------
+    builder.addCase(completeDetails.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(completeDetails.fulfilled, (state, action) => {
+      state.isLoading = false;
+      if (action.payload.error) {
+        state.isError = true;
+      } else {
+        state.data = action.payload;
+      }
+    });
+    builder.addCase(completeDetails.rejected, (state, action) => {
       console.log("Error", action.payload);
       state.isError = true;
       state.isLoading = false;

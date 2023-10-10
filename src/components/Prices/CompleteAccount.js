@@ -72,9 +72,12 @@ export default function CompleteAccount() {
                     operations through better control and visibility.
                   </p>
                   <div>
-                    <button className="btn btn-primary card-button">
+                    <Link
+                      to={"/groups/maersk-flow"}
+                      className="btn btn-primary card-button"
+                    >
                       Request Access
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

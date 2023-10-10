@@ -28,26 +28,25 @@ export default function Login() {
     password: "",
     agreeToTerms: false,
   };
-  const { data } = useSelector((state) => state.auth);
-  const { isLogged } = useSelector((state) => state.auth);
+  const { isLogged, data, isError } = useSelector((state) => state.auth);
+  // const { isLogged } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLoginUser = async (values) => {
     dispatch(loginUser(values));
   };
   useEffect(() => {
-    console.log("state", data);
+    console.log("data::::state", data);
     console.log("logged", isLogged);
     if (isLogged && data?.status === 200) {
       toast.success("User Login Successfull");
       setTimeout(() => {
         navigate("/");
       }, 1000);
-    }
-    if (data?.data?.status === 401) {
+    } else if (data?.status === 200 && data?.message === "Invalid password") {
       toast.error("Email and Password Invalid");
-    }
-  }, [data]);
+    } else console.log();
+  }, [data, isError]);
   return (
     <>
       <div>
@@ -64,7 +63,7 @@ export default function Login() {
           </Link>
         </nav>
 
-        <div className="row">
+        <div className="row gx-0">
           <ToastContainer />
           <div className="col-md-3"></div>
           <div className="col-md-6">

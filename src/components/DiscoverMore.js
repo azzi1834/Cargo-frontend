@@ -3,28 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import apiSolution from "../images/Prices/apisolution.svg";
 import ediSolution from "../images/Prices/edi.svg";
 import emissionDashboard from "../images/Prices/co2.svg";
+import "../styling/App.css";
 export default function DiscoverMore() {
-  const cardData = [
-    {
-      imgName: apiSolution,
-      cardTitle: "API Solutions",
-      cardText:
-        "API Solutions are the future of data integrations and are capable of secure, fast data transmissions that can be used to automatically update your information in real-time.",
-    },
-    {
-      imgName: ediSolution,
-      cardTitle: "Card 2",
-      cardText: "This is card 2.",
-    },
-    {
-      imgName: emissionDashboard,
-      cardTitle: "Card 3",
-      cardText: "This is card 3.",
-    },
-  ];
   return (
     <>
-      <div className="container">
+      <div className="spinner-container">
+        <div className="loading-spinner"></div>
+      </div>
+
+      {/* <div className="container">
         <div className="row">
           {cardData.map((card, index) => (
             <div key={index} className="col-lg-4 col-md-6 mb-4">
@@ -45,7 +32,7 @@ export default function DiscoverMore() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

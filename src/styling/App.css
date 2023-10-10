@@ -229,6 +229,8 @@ li {
   padding-left: 20px;
   padding-right: 20px;
   border: 0px;
+  margin: 40px 10px;
+
 }
 
 .dismiss {
@@ -449,6 +451,15 @@ li {
 }
 
 /* -----------Find Company------- */
+.profile-img-box {
+  background-color: aquamarine;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid aquamarine;
+  border-radius: 130px;
+}
+
 .user-details-text {
   margin: 20px 50px;
   background-color: rgb(209, 202, 202, 0.3);
@@ -456,8 +467,8 @@ li {
 }
 
 .user-details {
-  margin: 20px 100px;
-
+  /* margin: 20px 10px; */
+  padding: 10px 50px;
 }
 
 .reset-button {
@@ -476,4 +487,84 @@ li {
 .radio-button-details {
   color: rgb(126, 121, 121, 0.6);
   margin-left: 30px;
+}
+
+/* -------------------Company Details -----  */
+.company-details-text {
+  margin: 40px;
+  background-color: rgb(209, 202, 202, 0.3);
+  padding: 7px;
+}
+
+/* .company-details-text :hover {
+  margin: 0px;
+  background-color: rgb(209, 202, 202, 0.3);
+  padding: 5px;
+} */
+
+.company-details {
+  margin: 20px 30px;
+
+}
+
+.drop-arrows {
+  cursor: pointer;
+}
+
+.addreference-button {
+  color: rgb(78, 150, 221);
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #383636;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
+
+.references {
+  color: black;
+}
+
+.discard {
+  background-color: white;
+  color: black;
+  border: 1px solid rgb(126, 121, 121);
+}
+
+.discard :hover {
+  background-color: rgb(126, 121, 121, 0.3);
+  color: black;
+  border: 1px solid rgb(126, 121, 121);
 }

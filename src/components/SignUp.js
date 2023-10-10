@@ -82,18 +82,19 @@ export default function SignUp() {
         </Link>
       </nav>
       <ToastContainer />
-      <div className="row">
+      <div className="row gx-0">
         <div className="col-md-3"></div>
         <div className="col-md-6">
           <h1 className="p-3">Welcome to your Maersk Registration</h1>
           <div>
             <p className="p-3">
-              If you are already registered with Safmarine or any Sealand – A
-              Maersk Company region, then you don't need to register again. You
-              can instead go to the respective portal and login with your
-              username and password. You will then have the opportunity to
-              request access for Safmarine or any Sealand - A Maersk Company
-              region as well.
+              Previous customers of Sealand can{" "}
+              <Link to={"/auth/login"}>log in</Link> immediately to Maersk.
+              Please note that you may be asked for some further information to
+              identify which region should serve you. As a previous Twill
+              customer, there is no need to register again. Simply{" "}
+              <Link to={"/auth/login"}>log into Maersk</Link> using your Twill
+              username and password.
             </p>
           </div>
           <div className="signUpForm">
@@ -261,11 +262,11 @@ export default function SignUp() {
                   <div className="inputDiv d-flex">
                     <label className="mb-2 mt-3">
                       <Field type="checkbox" name="agreeToTerms" />
-                      &nbsp;I agree
+                      &nbsp;I agree&nbsp;
                       <Link to={"/registered-user-terms"}>
-                        registered user terms
+                        registered user terms{" "}
                       </Link>
-                      and
+                      and&nbsp;
                       <Link to={"/privacy"}>
                         Privacy notification and cookies policy
                       </Link>
@@ -276,7 +277,7 @@ export default function SignUp() {
                     component="div"
                     className="text-danger"
                   />
-                  <p className="p-3">
+                  <p className="px-3">
                     By registering as a new user, you accept without restriction
                     the user terms (encompassing general user terms, registered
                     user terms and privacy notification) and you will be granted
@@ -286,12 +287,12 @@ export default function SignUp() {
                     and view or download reports with detailed data of your
                     cargo movements.
                   </p>
-                  <p className="p-3">
+                  <p className="px-3 ">
                     As a registered customer, you can view your personal and
                     company details in my profile. A list of users within your
                     company is also available.
                   </p>
-                  <p className="p-3">
+                  <p className="px-3">
                     Without waiving any other rights and remedies, any breach or
                     violation of the user terms is subject to legal prosecution.
                   </p>
@@ -308,14 +309,14 @@ export default function SignUp() {
         </div>
         <div className=" col-md-3"></div>
       </div>
-      <div className="d-flex justify-content-center">
+      {/* <div className="d-flex justify-content-center">
         <p className="my-3 mx-3">Already have an Account?</p>
         <Link to={"/auth/login"}>
           <button className="btn btn-primary my-3 registerUser-button">
             Login
           </button>
         </Link>
-      </div>
+      </div> */}
     </>
   );
 }
