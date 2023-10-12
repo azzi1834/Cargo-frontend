@@ -43,7 +43,7 @@ export default function Login() {
       setTimeout(() => {
         navigate("/");
       }, 1000);
-    } else if (data?.status === 200 && data?.message === "Invalid password") {
+    } else if (data?.status === 402 && isLogged) {
       toast.error("Email and Password Invalid");
     } else console.log();
   }, [data, isError]);

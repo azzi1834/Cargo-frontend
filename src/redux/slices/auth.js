@@ -27,6 +27,10 @@ export const loginUser = createAsyncThunk("loginUser", async (body) => {
   );
   localStorage.setItem("jwtToken", response.data.token);
   localStorage.setItem("email", response?.data?.dataValues?.email);
+  console.log("userslice ", response.data);
+  if (response?.data?.status === 402) {
+    return response.data;
+  }
   return response;
 });
 

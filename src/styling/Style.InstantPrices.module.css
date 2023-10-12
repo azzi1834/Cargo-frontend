@@ -5,7 +5,16 @@
 }
 
 .check {
-    padding: 20px;
+    margin: 5px 10px;
+    cursor: not-allowed;
+    width: 25px;
+    height: 25px;
+}
+
+.checkCommodity {
+    margin: 5px 10px;
+    width: 25px;
+    height: 25px;
 }
 
 .checkButton {
@@ -13,11 +22,47 @@
 
 }
 
-/* .hrLine {
-    align-items: center;
-
-} */
+.checkLabel {
+    font-size: 16px;
+    margin: 10px 0px;
+}
 
 .infoSymbol {
     font-size: 23px;
+}
+
+.numberInput {
+    text-align: center;
+}
+
+.addSub {
+    background-color: rgba(226, 224, 224, 0.993);
+    cursor: pointer;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.searchButton {
+    background-color: #043358;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.searchButton :hover {
+    background-color: #10446b;
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+}
+
+.routeInfo {
+    width: 150px;
+    border: 1px solid rgb(194, 189, 189);
+    padding: 10px;
 }
